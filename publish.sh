@@ -24,7 +24,7 @@ print_success() {
 ##
 build() {
     print_info "Building..."
-    npx npm-run-all build:**
+    npx npm-run-all build:dist build:bin
 }
 
 update_version () {

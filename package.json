@@ -23,8 +23,7 @@
     "build:src": "npx babel -d ./dist ./src",
     "build:dist": "npx babel -d ./dist ./src --minified --no-comments",
     "build:bin": "npx pkg --out-path ./bin .",
-    "test:raw": "npx mocha",
-    "test": "npm-run-all build:src test:raw",
+    "test": "npx mocha",
     "start:raw": "node ./dist/csv-to-xlsx.js",
     "start": "npm-run-all build:src start:raw",
     "prepublishOnly": "npm-run-all test"
