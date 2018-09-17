@@ -22,6 +22,11 @@ print_success() {
 ##
 # Functions
 ##
+build() {
+    print_info "Building..."
+    npx npm-run-all build:**
+}
+
 update_version () {
     print_info "Updating version..."
     # must be run on a clean git directory

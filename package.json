@@ -27,7 +27,7 @@
     "test": "npm-run-all build:src test:raw",
     "start:raw": "node ./dist/csv-to-xlsx.js",
     "start": "npm-run-all build:src start:raw",
-    "prepublishOnly": "npm-run-all build:** test"
+    "prepublishOnly": "npm-run-all test"
   },
   "author": "Kiril Reznik",
   "license": "MIT",
