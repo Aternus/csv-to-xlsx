@@ -1,6 +1,6 @@
 {
   "name": "@aternus/csv-to-xlsx",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Command-line tool and a Node.js library to convert CSV files to XLSX (Excel 2007+ XML Format) files.",
   "keywords": [
     "convert",
