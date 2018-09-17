@@ -43,7 +43,7 @@ git_add() {
     print_info "Adding files to git, committing changes..."
     cd ${GIT_ROOT}
     git add .
-    git commit -m "version ${VERSION}"
+    git commit -m "${VERSION}"
 }
 
 git_push() {

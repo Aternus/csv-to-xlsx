@@ -1,7 +1,7 @@
 {
   "name": "@aternus/csv-to-xlsx",
   "version": "1.0.1",
-  "description": "Node.js command-line tool and a library to convert CSV files to XLSX (Excel 2007+ XML Format) files.",
+  "description": "Command-line tool and a Node.js library to convert CSV files to XLSX (Excel 2007+ XML Format) files.",
   "keywords": [
     "convert",
     "csv",
@@ -10,14 +10,15 @@
     "xml",
     "utf-8",
     "multilingual",
-    "batch"
+    "batch",
+    "cli",
+    "windows",
+    "linux",
+    "macos"
   ],
   "main": "dist/csv-to-xlsx.js",
   "bin": {
-    "csv-to-xlsx": "dist/csv-to-xlsx.js",
-    "csv-to-xlsx-win": "bin/csv-to-xlsx-win.exe",
-    "csv-to-xlsx-linux": "bin/csv-to-xlsx-linux",
-    "csv-to-xlsx-macos": "bin/csv-to-xlsx-macos"
+    "csv-to-xlsx": "dist/csv-to-xlsx.js"
   },
   "scripts": {
     "build:src": "npx babel -d ./dist ./src",
