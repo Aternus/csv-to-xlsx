@@ -34,7 +34,7 @@ if (module.parent) {
 
   program.on('--help', function() {
     console.log(``);
-    console.log(`Created by: ${pkg.author}`);
+    console.log(`Created by: ${pkg.author.name}`);
     console.log(`Please report bugs at: ${pkg.bugs.url}`);
   });
 

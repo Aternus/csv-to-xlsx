@@ -29,7 +29,9 @@
     "start": "npm-run-all build:src start:raw",
     "prepublishOnly": "npm-run-all test"
   },
-  "author": "Kiril Reznik",
+  "author": {
+    "name": "Kiril Reznik"
+  },
   "license": "MIT",
   "homepage": "https://github.com/Aternus/csv-to-xlsx",
   "repository": {
