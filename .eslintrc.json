@@ -1,0 +1,13 @@
+{
+  "extends": "google",
+  "rules": {
+    "comma-dangle": "off"
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 8
+  },
+  "env": {
+    "node": true
+  }
+}

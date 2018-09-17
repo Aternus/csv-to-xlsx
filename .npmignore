@@ -1,0 +1,7 @@
+.idea/
+node_modules/
+src/
+test/
+babel.config.js
+.eslintrc.json
+*.sh
