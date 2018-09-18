@@ -80,5 +80,5 @@ if (module.parent) {
     }
   }
 
-  console.log(`Complete.`);
+  console.info(`Complete.`);
 }

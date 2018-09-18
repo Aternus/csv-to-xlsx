@@ -13,13 +13,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 ### Security
 
+## [1.0.5] - 2018-09-18
+### Changed
+- README.md.
+- Updated the package.json scripts.
+- Updated the publish script.
+
 ## [1.0.4] - 2018-09-18
-### Fixed
+### Changed
 - README.md.
 
 ## [1.0.3] - 2018-09-18
 ### Fixed
-- Updated the structure of package.json to avoid a bug with author name.
+- Updated the structure of package.json to avoid a bug with author name in Node.js CLI mode.
 
 ## [1.0.2] - 2018-09-18
 ### Added

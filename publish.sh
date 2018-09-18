@@ -4,7 +4,6 @@
 # Publish the Library to npmjs.com
 ###########################################################
 
-GIT_ROOT=$(git rev-parse --show-toplevel)
 VERSION=$1
 
 ##
@@ -22,16 +21,13 @@ print_success() {
 ##
 # Functions
 ##
-build() {
-    print_info "Building..."
-    npx npm-run-all build:dist build:bin
-}
-
-update_version () {
+version () {
     print_info "Updating version..."
     # must be run on a clean git directory
-    # automatically adds a git tag
-    npm version "${VERSION}"
+    # see package.json for preversion, version and postversion scripts
+    # git: auto commit
+    # git: auto tag
+    npm version --force "${VERSION}"
 }
 
 publish() {
@@ -39,28 +35,7 @@ publish() {
     npm publish
 }
 
-git_add() {
-    print_info "Adding files to git, committing changes..."
-    cd ${GIT_ROOT}
-    git add .
-    git commit -m "${VERSION}"
-}
-
-git_push() {
-    print_info "Pushing to remote..."
-    cd ${GIT_ROOT}
-    git push
-}
-
-git_push_tags() {
-    print_info "Pushing tags to remote..."
-    cd ${GIT_ROOT}
-    git push --prune --tags
-}
-
 ##
 # Run
 ##
-build
-git_add
-update_version && publish && git_push && git_push_tags && print_success "Complete."
+version && publish && print_success "Complete."

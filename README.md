@@ -1,11 +1,23 @@
 # @aternus/csv-to-xlsx
 
-Command-line tool to convert CSV files to XLSX (Excel 2007+ XML Format) files written in JavaScript.
+Convert CSV files to XLSX (Excel 2007+ XML Format) files.
 
-Precompiled binaries (see the `bin` folder) are available for:
+Written in JavaScript. Available for Node.js CLI and API.
+
+Binaries are available for:
 - Windows x64
 - Linux x64
-- MacOS
+- MacOS x64
+
+
+## Features
+
+- Binaries - download and run via your OS's command-line utility
+- Fast and Reliable
+- Full UTF-8 support
+- CSV Column detection
+- Batch mode - convert a CSV folder to an XLSX folder
+- Node.js CLI and API
 
 
 ## Installation
@@ -17,7 +29,9 @@ npm install @aternus/csv-to-xlsx
 
 ## Usage
 
-### Precompiled Binary (Command-line)
+### Binaries
+
+Download the executables from the `bin` folder.
 
 ```bash
 ./csv-to-xlsx-linux -i "input-directory" -o "output-directory"
@@ -31,7 +45,7 @@ Type `--help` for a full list of options.
 npx csv-to-xlsx -i "input-directory" -o "output-directory"
 ```
 
-### Node.js
+### Node.js API
 
 ```javascript
 const path = require('path');
