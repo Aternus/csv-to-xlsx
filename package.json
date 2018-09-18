@@ -1,6 +1,6 @@
 {
   "name": "@aternus/csv-to-xlsx",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Convert CSV files to XLSX (Excel 2007+ XML Format) files via Node.js CLI or API.",
   "keywords": [
     "convert",
@@ -33,7 +33,7 @@
     "start": "npm-run-all build:src start:raw",
     "preversion": "npm-run-all test",
     "version": "npm-run-all build:dist build:bin git:add",
-    "postversion": "npm-run-all git:push:*"
+    "postversion": "npm-run-all git:push git:push:tags"
   },
   "author": {
     "name": "Kiril Reznik"

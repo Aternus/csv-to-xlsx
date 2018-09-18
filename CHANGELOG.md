@@ -13,6 +13,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 ### Security
 
+## [1.0.6] - 2018-09-18
+### Added
+- The publish script now informs about the CHANGELOG.md.
+
+### Fixed
+- The publish script now pushes repo and tags appropriately.
+
 ## [1.0.5] - 2018-09-18
 ### Changed
 - README.md.
