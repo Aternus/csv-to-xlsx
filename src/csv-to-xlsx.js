@@ -61,7 +61,7 @@ if (module.parent) {
   // read csvPath
   const csvFiles = fs.readdirSync(csvPath);
 
-  for (let file of csvFiles) {
+  for (const file of csvFiles) {
     // parse file
     const fileObject = path.parse(file);
     // check file extension
@@ -73,7 +73,7 @@ if (module.parent) {
     try {
       convertCsvToXlsx(
           path.join(csvPath, file),
-          path.join(xlsxPath, `${fileObject.name}.xlsx`)
+          path.join(xlsxPath, `${fileObject.name}.xlsx`),
       );
     } catch (e) {
       console.info(`${e.toString()}`);

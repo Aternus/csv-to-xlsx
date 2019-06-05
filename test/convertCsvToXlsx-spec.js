@@ -56,7 +56,7 @@ describe(`convertCsvToXlsx`, function() {
 
       const csvFiles = fs.readdirSync(csvPath);
 
-      for (let file of csvFiles) {
+      for (const file of csvFiles) {
         // parse file
         const fileObject = path.parse(file);
         // check file extension
@@ -66,7 +66,7 @@ describe(`convertCsvToXlsx`, function() {
         // convert
         convertCsvToXlsx(
             path.join(csvPath, file),
-            path.join(xlsxPath, `${fileObject.name}.xlsx`)
+            path.join(xlsxPath, `${fileObject.name}.xlsx`),
         );
       }
     });

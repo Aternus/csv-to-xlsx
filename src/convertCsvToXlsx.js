@@ -14,7 +14,7 @@ function convertCsvToXlsx(source, destination) {
   // sanity checks
   if (typeof source !== 'string' || typeof destination !== 'string') {
     throw new Error(
-        `"source" and "destination" arguments must be of type string.`
+        `"source" and "destination" arguments must be of type string.`,
     );
   }
 
@@ -36,7 +36,7 @@ function convertCsvToXlsx(source, destination) {
     columns: true,
     delimiter: ',',
     ltrim: true,
-    rtrim: true
+    rtrim: true,
   };
 
   // get records
