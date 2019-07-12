@@ -25,6 +25,7 @@ describe(`convertCsvToXlsx`, function() {
       }).to.throw(Error);
     });
   });
+
   //
   describe(`Invalid "source" and "destination" arguments`, function() {
     it(`should throw an Error`, function() {
@@ -33,6 +34,7 @@ describe(`convertCsvToXlsx`, function() {
       }).to.throw(Error);
     });
   });
+
   //
   describe(`Empty "source" and "destination" arguments`, function() {
     it(`should throw an Error`, function() {
@@ -41,6 +43,7 @@ describe(`convertCsvToXlsx`, function() {
       }).to.throw(Error);
     });
   });
+
   //
   describe(`Convert CSV to XLSX`, function() {
     // define a timeout for this test
@@ -64,10 +67,7 @@ describe(`convertCsvToXlsx`, function() {
           continue;
         }
         // convert
-        convertCsvToXlsx(
-            path.join(csvPath, file),
-            path.join(xlsxPath, `${fileObject.name}.xlsx`),
-        );
+        convertCsvToXlsx(path.join(csvPath, file), path.join(xlsxPath, `${fileObject.name}.xlsx`));
       }
     });
   });

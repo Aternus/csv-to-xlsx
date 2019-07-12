@@ -1,8 +1,5 @@
 {
-  "extends": "google",
-  "rules": {
-    "comma-dangle": "off"
-  },
+  "extends": ["google", "prettier"],
   "parserOptions": {
     "sourceType": "module",
     "ecmaVersion": 8

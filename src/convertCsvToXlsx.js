@@ -13,9 +13,7 @@ const xlsx = require('xlsx');
 function convertCsvToXlsx(source, destination) {
   // sanity checks
   if (typeof source !== 'string' || typeof destination !== 'string') {
-    throw new Error(
-        `"source" and "destination" arguments must be of type string.`,
-    );
+    throw new Error(`"source" and "destination" arguments must be of type string.`);
   }
 
   // source exists

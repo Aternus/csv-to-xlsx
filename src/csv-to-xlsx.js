@@ -21,21 +21,16 @@ if (module.parent) {
   /*
    Program
    *********************************************************/
-  program.
-      version(pkg.version, '-v, --version').
-      option(
-          '-i, --input-dir [dir]',
-          'Input directory that has the CSV files',
-          'csv').
-      option(
-          '-o, --output-dir [dir]',
-          'Output directory for the XLSX files',
-          'xlsx');
+  program
+    .version(pkg.version, '-v, --version')
+    .option('-i, --input-dir [dir]', 'Input directory that has the CSV files', 'csv')
+    .option('-o, --output-dir [dir]', 'Output directory for the XLSX files', 'xlsx');
 
   program.on('--help', function() {
     console.log(``);
     console.log(`Created by: ${pkg.author.name}`);
     console.log(`Please report bugs at: ${pkg.bugs.url}`);
+    console.log(`Version: ${pkg.version}`);
   });
 
   program.parse(process.argv);
@@ -71,10 +66,7 @@ if (module.parent) {
     console.info(`Converting: ${fileObject.name}`);
     // convert
     try {
-      convertCsvToXlsx(
-          path.join(csvPath, file),
-          path.join(xlsxPath, `${fileObject.name}.xlsx`),
-      );
+      convertCsvToXlsx(path.join(csvPath, file), path.join(xlsxPath, `${fileObject.name}.xlsx`));
     } catch (e) {
       console.info(`${e.toString()}`);
     }
