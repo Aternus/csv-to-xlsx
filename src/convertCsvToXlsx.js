@@ -7,13 +7,14 @@ const xlsx = require('xlsx');
  *
  * @param {string} source
  * @param {string} destination
+ * @param {string} delimiter
  *
  * @throws Error
  */
-function convertCsvToXlsx(source, destination) {
+function convertCsvToXlsx(source, destination, delimiter = ',') {
   // sanity checks
-  if (typeof source !== 'string' || typeof destination !== 'string') {
-    throw new Error(`"source" and "destination" arguments must be of type string.`);
+  if (typeof source !== 'string' || typeof destination !== 'string' || typeof delimiter !== 'string') {
+    throw new Error(`"source", "destination" and "delimiter" arguments must be of type string.`);
   }
 
   // source exists
@@ -26,13 +27,18 @@ function convertCsvToXlsx(source, destination) {
     throw new Error(`destination "${destination}" already exists.`);
   }
 
+  // delimiter not , or .
+  if (delimiter != ',' || delimiter != '.') {
+    throw new Error(`delimiter must be comma or dot`);
+  }
+
   // read source
   const csvFile = fs.readFileSync(source, 'UTF-8');
 
   // csv parser options
   const csvOptions = {
     columns: true,
-    delimiter: ',',
+    delimiter: delimiter,
     ltrim: true,
     rtrim: true,
   };

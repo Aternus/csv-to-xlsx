@@ -53,7 +53,7 @@ let source = path.join(__dirname, 'report.csv');
 let destination = path.join(__dirname, 'converted_report.xlsx');
 
 try {
-  convertCsvToXlsx(source, destination);
+  convertCsvToXlsx(source, destination, ',');
 } catch (e) {
   console.error(e.toString());
 }
