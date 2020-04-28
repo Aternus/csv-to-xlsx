@@ -28,7 +28,7 @@ function convertCsvToXlsx(source, destination, delimiter = ',') {
   }
 
   // delimiter not , or .
-  if (delimiter != ',' || delimiter != '.') {
+  if (delimiter !== ',' || delimiter !== '.') {
     throw new Error(`delimiter must be comma or dot`);
   }
 
