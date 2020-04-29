@@ -19,6 +19,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Security
 
+## [1.0.14]
+
+### Changed
+
+- Removed "bin" folder from npmjs.com package. Please get the binaries directly from Github.
+
 ## [1.0.13]
 
 ### Security
