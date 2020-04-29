@@ -19,6 +19,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Security
 
+## [1.0.13]
+
+### Security
+
+- Updated npm dependencies
+
 ## [1.0.12]
 
 ### Security
@@ -41,7 +47,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
-- Added version to the help menu
+- Added the version to the help menu
 - Added Prettier code formatter
 - Added ESLint prettier config
 
@@ -73,17 +79,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
-- Updated the publish script
+- Updated the "publish" script
 
 ## [1.0.6]
 
 ### Added
 
-- The publish script now informs about the CHANGELOG.md
+- The "publish" script now informs about the CHANGELOG.md
 
 ### Fixed
 
-- The publish script now pushes repo and tags appropriately
+- The "publish" script now pushes repo and tags appropriately
 
 ## [1.0.5]
 
@@ -91,7 +97,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - README.md
 - Updated the package.json scripts
-- Updated the publish script
+- Updated the "publish" script
 
 ## [1.0.4]
 
@@ -114,7 +120,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 
 - Updated the package description
-- Updated the publish script
+- Updated the "publish" script
 
 ### Fixed
 
@@ -124,7 +130,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
-- Updated the publish script
+- Updated the "publish" script
 
 ## [1.0.0]
 

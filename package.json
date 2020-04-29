@@ -1,6 +1,6 @@
 {
   "name": "@aternus/csv-to-xlsx",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Convert CSV files to XLSX (Excel 2007+ XML Format) files via Node.js CLI or API.",
   "keywords": [
     "convert",
@@ -51,26 +51,26 @@
     "access": "public"
   },
   "devDependencies": {
-    "@babel/cli": "^7.7.7",
-    "@babel/core": "^7.7.7",
-    "@babel/preset-env": "^7.7.7",
-    "@types/chai": "^4.2.7",
-    "@types/fs-extra": "^8.0.1",
-    "@types/mocha": "^5.2.7",
-    "@types/node": "^12.12.21",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@types/chai": "^4.2.11",
+    "@types/fs-extra": "^8.1.0",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^12.12.37",
     "chai": "^4.2.0",
     "eslint": "^6.8.0",
     "eslint-config-google": "^0.14.0",
-    "eslint-config-prettier": "^6.7.0",
-    "mocha": "^6.2.2",
+    "eslint-config-prettier": "^6.11.0",
+    "mocha": "^7.1.2",
     "npm-run-all": "^4.1.5",
-    "pkg": "^4.4.2",
-    "prettier": "^1.19.1"
+    "pkg": "^4.4.8",
+    "prettier": "^2.0.5"
   },
   "dependencies": {
-    "commander": "^4.0.1",
-    "csv-parse": "^4.8.2",
-    "fs-extra": "^8.1.0",
-    "xlsx": "^0.15.3"
+    "commander": "^5.1.0",
+    "csv-parse": "^4.9.0",
+    "fs-extra": "^9.0.0",
+    "xlsx": "^0.15.6"
   }
 }

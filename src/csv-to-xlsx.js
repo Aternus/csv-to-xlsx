@@ -26,7 +26,7 @@ if (module.parent) {
     .option('-i, --input-dir [dir]', 'Input directory that has the CSV files', 'csv')
     .option('-o, --output-dir [dir]', 'Output directory for the XLSX files', 'xlsx');
 
-  program.on('--help', function() {
+  program.on('--help', function () {
     console.log(``);
     console.log(`Created by: ${pkg.author.name}`);
     console.log(`Please report bugs at: ${pkg.bugs.url}`);

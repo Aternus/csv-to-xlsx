@@ -16,10 +16,10 @@ const expect = require('chai').expect;
 const convertCsvToXlsx = require('../');
 
 /* eslint-disable no-invalid-this */
-describe(`convertCsvToXlsx`, function() {
+describe(`convertCsvToXlsx`, function () {
   //
-  describe(`Missing arguments`, function() {
-    it(`should throw an Error`, function() {
+  describe(`Missing arguments`, function () {
+    it(`should throw an Error`, function () {
       expect(() => {
         convertCsvToXlsx();
       }).to.throw(Error);
@@ -27,8 +27,8 @@ describe(`convertCsvToXlsx`, function() {
   });
 
   //
-  describe(`Invalid "source" and "destination" arguments`, function() {
-    it(`should throw an Error`, function() {
+  describe(`Invalid "source" and "destination" arguments`, function () {
+    it(`should throw an Error`, function () {
       expect(() => {
         convertCsvToXlsx(null, null);
       }).to.throw(Error);
@@ -36,8 +36,8 @@ describe(`convertCsvToXlsx`, function() {
   });
 
   //
-  describe(`Empty "source" and "destination" arguments`, function() {
-    it(`should throw an Error`, function() {
+  describe(`Empty "source" and "destination" arguments`, function () {
+    it(`should throw an Error`, function () {
       expect(() => {
         convertCsvToXlsx('', '');
       }).to.throw(Error);
@@ -45,11 +45,11 @@ describe(`convertCsvToXlsx`, function() {
   });
 
   //
-  describe(`Convert CSV to XLSX`, function() {
+  describe(`Convert CSV to XLSX`, function () {
     // define a timeout for this test
     this.timeout(30000); // 30sec
 
-    it(`csv/*.csv files to xlsx/*.xlsx files`, function() {
+    it(`csv/*.csv files to xlsx/*.xlsx files`, function () {
       //
       const csvPath = path.join(__dirname, 'csv');
       const xlsxPath = path.join(__dirname, 'xlsx');
