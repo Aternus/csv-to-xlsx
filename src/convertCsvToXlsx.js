@@ -7,10 +7,10 @@ const xlsx = require('xlsx');
  *
  * @param {string} source
  * @param {string} destination
- *
+ * @param {boolean} overrideDestination
  * @throws Error
  */
-function convertCsvToXlsx(source, destination) {
+function convertCsvToXlsx(source, destination , overrideDestination) {
   // sanity checks
   if (typeof source !== 'string' || typeof destination !== 'string') {
     throw new Error(`"source" and "destination" arguments must be of type string.`);
@@ -22,9 +22,9 @@ function convertCsvToXlsx(source, destination) {
   }
 
   // destination doesn't exist
-  if (fs.existsSync(destination)) {
-    throw new Error(`destination "${destination}" already exists.`);
-  }
+  if(fs.existsSync(destination) && !overrideDestination){
+        throw new Error(`destination "${destination}" already exists.`);
+   }
 
   // read source
   const csvFile = fs.readFileSync(source, 'UTF-8');
