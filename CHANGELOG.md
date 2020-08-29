@@ -19,6 +19,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Security
 
+## [1.0.16]
+
+### Added
+
+- Added test for ture and false values
+
+### Fixed
+
+- Removed unnecessary type conversion
+
+### Security
+
+- Updated npm dependencies
+
 ## [1.0.15]
 
 ### Security

@@ -48,7 +48,7 @@ function convertCsvToXlsx(source, destination) {
   xlsx.utils.book_append_sheet(wb, ws);
 
   // write the xlsx workbook to destination
-  xlsx.writeFile(wb, String(destination));
+  xlsx.writeFile(wb, destination);
 }
 
 module.exports = convertCsvToXlsx;
