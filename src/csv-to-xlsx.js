@@ -4,19 +4,17 @@
  Requires
  *********************************************************/
 const path = require('path');
+const fs = require('fs');
 
-const fs = require('fs-extra');
 const program = require('commander');
 
 const convertCsvToXlsx = require('./convertCsvToXlsx');
 
-if (module.parent) {
-  module.exports = convertCsvToXlsx;
-} else {
+if (module === require.main) {
   /*
    Variables
    *********************************************************/
-  const pkg = require('../package');
+  const pkg = require('../package.json');
 
   /*
    Program
@@ -35,8 +33,10 @@ if (module.parent) {
 
   program.parse(process.argv);
 
-  const csvPath = path.join(process.cwd(), program.inputDir);
-  const xlsxPath = path.join(process.cwd(), program.outputDir);
+  const programOptions = program.opts();
+
+  const csvPath = path.join(process.cwd(), programOptions.inputDir);
+  const xlsxPath = path.join(process.cwd(), programOptions.outputDir);
 
   // check the csvPath
   if (!fs.existsSync(csvPath)) {
@@ -50,7 +50,7 @@ if (module.parent) {
   if (!fs.existsSync(xlsxPath)) {
     // create xlsx folder
     console.info(`Creating output directory: ${xlsxPath}`);
-    fs.mkdirpSync(xlsxPath);
+    fs.mkdirSync(xlsxPath, { recursive: true });
   }
 
   // read csvPath
@@ -73,4 +73,6 @@ if (module.parent) {
   }
 
   console.info(`Complete.`);
+} else {
+  module.exports = convertCsvToXlsx;
 }

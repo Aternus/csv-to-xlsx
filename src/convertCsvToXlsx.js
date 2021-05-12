@@ -1,4 +1,5 @@
-const fs = require('fs-extra');
+const fs = require('fs');
+
 const csv = require('csv-parse/lib/sync');
 const xlsx = require('xlsx');
 
