@@ -19,6 +19,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Security
 
+## [1.0.19]
+
+### Changed
+
+- README.md
+
 ## [1.0.18]
 
 ### Changed
@@ -26,6 +32,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Updated the code responsible for command line arguments processing
 - Replaced `fs-extra` with the native `fs` module
 - Updated `package.json`: specified engines and module type
+- Updated to node.js v14
 
 ### Security
 
@@ -61,7 +68,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
-- Removed "bin" folder from npmjs.com package. Please get the binaries directly from Github.
+- Removed "bin" folder from npmjs.com package. Please get the binaries directly from GitHub.
 
 ## [1.0.13]
 

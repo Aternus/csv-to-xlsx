@@ -40,7 +40,7 @@ Download the executables from the `bin` folder.
 Type `--help` for a full list of options.
 
 ```bash
-npx csv-to-xlsx -i "input-directory" -o "output-directory"
+npx @aternus/csv-to-xlsx -i "input-directory" -o "output-directory"
 ```
 
 ### Node.js API
