@@ -72,7 +72,7 @@
   "dependencies": {
     "commander": "^7.2.0",
     "csv-parse": "^4.15.1",
-    "xlsx": "^0.16.9"
+    "xlsx": "^0.17.0"
   },
   "engines": {
     "node": ">=14"
