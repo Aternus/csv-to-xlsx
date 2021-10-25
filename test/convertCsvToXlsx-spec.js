@@ -71,5 +71,30 @@ describe(`convertCsvToXlsx`, function () {
         convertCsvToXlsx(path.join(csvPath, file), path.join(xlsxPath, `${fileObject.name}.xlsx`));
       }
     });
+
+
+    it(`csv/*.csv files to xlsx/*.xlsx files with sheet name`, function () {
+      //
+      const csvPath = path.join(__dirname, 'csv');
+      const xlsxPath = path.join(__dirname, 'xlsx');
+      const sheetName = 'sheetName';
+
+      // empty xlsx folder
+      fs.rmdirSync(xlsxPath, { recursive: true });
+      fs.mkdirSync(xlsxPath);
+
+      const csvFiles = fs.readdirSync(csvPath);
+
+      for (const file of csvFiles) {
+        // parse file
+        const fileObject = path.parse(file);
+        // check file extension
+        if (fileObject.ext !== '.csv') {
+          continue;
+        }
+        // convert
+        convertCsvToXlsx(path.join(csvPath, file), path.join(xlsxPath, `${fileObject.name}.xlsx`),sheetName);
+      }
+    });
   });
 });

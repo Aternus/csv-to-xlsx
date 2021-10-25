@@ -1,7 +1,7 @@
 {
-  "name": "@aternus/csv-to-xlsx",
-  "version": "1.0.19",
-  "description": "Convert CSV files to XLSX (Excel 2007+ XML Format) files via Node.js CLI or API.",
+  "name": "@sadiqumar18/csv-to-xlsx",
+  "version": "1.0.0",
+  "description": "Convert CSV files to XLSX (Excel 2007+ XML Format) files via Node.js CLI or API. credits to https://github.com/Aternus/csv-to-xlsx#aternuscsv-to-xlsx",
   "keywords": [
     "convert",
     "csv",

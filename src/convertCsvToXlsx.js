@@ -9,9 +9,10 @@ const xlsx = require('xlsx');
  * @param {string} source
  * @param {string} destination
  *
+ * @param {string} sheetName
  * @throws Error
  */
-function convertCsvToXlsx(source, destination) {
+function convertCsvToXlsx(source, destination,sheetName= '') {
   // sanity checks
   if (typeof source !== 'string' || typeof destination !== 'string') {
     throw new Error(`"source" and "destination" arguments must be of type string.`);
@@ -46,7 +47,7 @@ function convertCsvToXlsx(source, destination) {
 
   // insert the records as a sheet
   const ws = xlsx.utils.json_to_sheet(records);
-  xlsx.utils.book_append_sheet(wb, ws);
+  xlsx.utils.book_append_sheet(wb, ws,sheetName);
 
   // write the xlsx workbook to destination
   xlsx.writeFile(wb, destination);
