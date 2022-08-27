@@ -19,6 +19,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Security
 
+## [1.1.0]
+
+### Changed
+
+- Updated build scripts
+- Replaced `fs` with `fs-extra` module
+- Updated to node.js v16
+
+### Security
+
+- Updated npm dependencies
+
 ## [1.0.19]
 
 ### Changed

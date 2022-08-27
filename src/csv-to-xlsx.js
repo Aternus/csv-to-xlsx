@@ -4,9 +4,9 @@
  Requires
  *********************************************************/
 const path = require('path');
-const fs = require('fs');
+const fs = require('fs-extra');
 
-const program = require('commander');
+const { program } = require('commander');
 
 const convertCsvToXlsx = require('./convertCsvToXlsx');
 

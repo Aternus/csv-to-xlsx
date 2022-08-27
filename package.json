@@ -1,6 +1,6 @@
 {
   "name": "@aternus/csv-to-xlsx",
-  "version": "1.0.19",
+  "version": "1.1.0",
   "description": "Convert CSV files to XLSX (Excel 2007+ XML Format) files via Node.js CLI or API.",
   "keywords": [
     "convert",
@@ -28,13 +28,16 @@
     "git:push:tags": "git push origin master --prune --tags",
     "build:src": "npx babel -d ./dist ./src",
     "build:dist": "npx babel -d ./dist ./src --minified --no-comments",
-    "build:bin": "npx pkg --out-path ./bin .",
+    "build:bin": "npx pkg .",
     "build": "npm-run-all build:dist build:bin",
+    "pretest": "npm-run-all build",
     "test": "npx mocha",
+    "pretest:dev": "npm-run-all build:src",
+    "test:dev": "npx mocha",
     "start:raw": "node ./dist/csv-to-xlsx.js --help",
     "start": "npm-run-all build:src start:raw",
     "preversion": "npm-run-all test",
-    "version": "npm-run-all build git:add",
+    "version": "npm-run-all git:add",
     "postversion": "npm-run-all git:push git:push:tags"
   },
   "author": {
@@ -58,23 +61,32 @@
     "@babel/preset-env": "^7.12.16",
     "@types/chai": "^4.2.15",
     "@types/fs-extra": "^9.0.7",
-    "@types/mocha": "^8.2.0",
-    "@types/node": "^14.14.44",
+    "@types/mocha": "^9.1.0",
+    "@types/node": "^16.11.26",
     "chai": "^4.3.0",
-    "eslint": "^7.20.0",
+    "eslint": "8.22",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^8.3.0",
-    "mocha": "^8.3.0",
+    "fs-extra": "^10.1.0",
+    "mocha": "^10.0.0",
     "npm-run-all": "^4.1.5",
     "pkg": "^5.1.0",
-    "prettier": "^2.2.1"
+    "prettier": "2.7.1"
   },
   "dependencies": {
-    "commander": "^7.2.0",
-    "csv-parse": "^4.15.1",
-    "xlsx": "^0.16.9"
+    "commander": "^9.1.0",
+    "csv-parse": "^5.0.4",
+    "xlsx": "^0.18.5"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
+  },
+  "pkg": {
+    "outputPath": "bin",
+    "targets": [
+      "node16-linux-x64",
+      "node16-macos-x64",
+      "node16-win-x64"
+    ]
   }
 }

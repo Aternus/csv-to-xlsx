@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const csv = require('csv-parse/lib/sync');
+const { parse } = require('csv-parse/sync');
 const xlsx = require('xlsx');
 
 /**
@@ -39,7 +39,7 @@ function convertCsvToXlsx(source, destination) {
   };
 
   // get records
-  const records = csv(csvFile, csvOptions);
+  const records = parse(csvFile, csvOptions);
 
   // prepare the xlsx workbook
   const wb = xlsx.utils.book_new();

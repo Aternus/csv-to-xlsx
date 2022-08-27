@@ -9,7 +9,7 @@
  */
 
 const path = require('path');
-const fs = require('fs');
+const fs = require('fs-extra');
 
 const expect = require('chai').expect;
 
@@ -55,8 +55,7 @@ describe(`convertCsvToXlsx`, function () {
       const xlsxPath = path.join(__dirname, 'xlsx');
 
       // empty xlsx folder
-      fs.rmdirSync(xlsxPath, { recursive: true });
-      fs.mkdirSync(xlsxPath);
+      fs.emptyDirSync(xlsxPath);
 
       const csvFiles = fs.readdirSync(csvPath);
 
