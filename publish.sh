@@ -27,7 +27,7 @@ version() {
   # see package.json for preversion, version and postversion scripts
   # git: auto commit
   # git: auto tag
-  npm version --force "${VERSION}" -m "%s - CHANGELOG.md"
+  npm version "${VERSION}" -m "%s - CHANGELOG.md"
 }
 
 publish() {
