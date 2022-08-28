@@ -4,10 +4,11 @@ bin/
 cli/
 src/
 test/
-dist/package.json
 dist/test/
-babel.config.js
 .eslintrc.js
+.eslintignore
 prettier.config.js
+.prettierignore
+.mocharc.js
 tsconfig*
 *.sh
