@@ -20,6 +20,12 @@ and this project adheres to
 
 ### Security
 
+## [2.0.3]
+
+### Fixed
+
+- Fixed build issues
+
 ## [2.0.0]
 
 ### Added
