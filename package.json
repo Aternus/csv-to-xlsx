@@ -41,7 +41,7 @@
     "start:cli": "node ./dist/cli/csv-to-xlsx.js --help",
     "start": "npm-run-all build start:cli",
     "preversion": "npm-run-all test",
-    "version": "npm-run-all build:dist git:add",
+    "version": "npm-run-all build git:add",
     "postversion": "npm-run-all git:push git:push:tags"
   },
   "author": {
