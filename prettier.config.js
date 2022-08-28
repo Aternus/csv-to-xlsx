@@ -7,5 +7,5 @@ module.exports = {
   arrowParens: 'always',
   proseWrap: 'always', // markdown
   endOfLine: 'lf',
-  printWidth: 120,
+  printWidth: 80,
 };

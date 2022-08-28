@@ -1,0 +1,7 @@
+{
+  "extends": "../tsconfig.no_composite.base.json",
+  "files": ["convertCsvToXlsx.spec.ts"],
+  "compilerOptions": {
+    "noEmit": true
+  }
+}

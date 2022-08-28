@@ -1,0 +1,7 @@
+{
+  "extends": "../tsconfig.base.json",
+  "files": ["convertCsvToXlsx.ts", "convertCsvToXlsx.types.ts"],
+  "compilerOptions": {
+    "outDir": "../dist"
+  }
+}

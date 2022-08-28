@@ -19,6 +19,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Security
 
+## [2.0.0]
+
+### Added
+
+- TypeScript
+
+### Changed
+
+- Decoupled CLI and API implementations
+
 ## [1.1.1]
 
 ### Fixed
@@ -87,7 +97,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
-- Removed "bin" folder from npmjs.com package. Please get the binaries directly from GitHub.
+- Removed "bin" folder from npmjs.com package. Please get the binaries directly
+  from GitHub.
 
 ## [1.0.13]
 
@@ -179,7 +190,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Fixed
 
-- Updated the structure of package.json to avoid a bug with author name in Node.js CLI mode
+- Updated the structure of package.json to avoid a bug with author name in
+  Node.js CLI mode
 
 ## [1.0.2]
 

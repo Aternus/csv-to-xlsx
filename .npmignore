@@ -1,9 +1,13 @@
 .idea/
 node_modules/
 bin/
+cli/
 src/
 test/
+dist/package.json
+dist/test/
 babel.config.js
-.eslintrc.json
+.eslintrc.js
 prettier.config.js
+tsconfig*
 *.sh
