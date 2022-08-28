@@ -5,4 +5,5 @@ src/
 test/
 babel.config.js
 .eslintrc.json
+prettier.config.js
 *.sh
