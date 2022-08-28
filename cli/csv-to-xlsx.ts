@@ -24,6 +24,11 @@ program
     '-s, --sheet-name [name]',
     'Set the sheet name to be used in the XLSX files',
     '',
+  )
+  .option(
+    '-f, --force',
+    'forcefully overwrite XLSX files at the output directory',
+    false,
   );
 
 program.on('--help', function () {
@@ -72,6 +77,7 @@ for (const file of csvFiles) {
     const destination = path.join(xlsxPath, `${fileObject.name}.xlsx`);
     convertCsvToXlsx(source, destination, {
       sheetName: programOptions.sheetName,
+      overwrite: Boolean(programOptions.force),
     });
   } catch (e) {
     console.error(e.toString());

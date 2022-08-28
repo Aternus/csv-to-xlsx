@@ -12,7 +12,7 @@ import { APIParameters } from './convertCsvToXlsx.types';
 export function convertCsvToXlsx(
   source: string,
   destination: string,
-  { sheetName = '' }: APIParameters = {},
+  { sheetName = '', overwrite = false }: APIParameters = {},
 ) {
   // sanity checks
   if (typeof source !== 'string' || typeof destination !== 'string') {
@@ -27,7 +27,7 @@ export function convertCsvToXlsx(
   }
 
   // destination doesn't exist
-  if (fs.existsSync(destination)) {
+  if (fs.existsSync(destination) && !overwrite) {
     throw new Error(`destination "${destination}" already exists.`);
   }
 

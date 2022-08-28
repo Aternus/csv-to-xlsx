@@ -31,6 +31,8 @@
     "build:bin": "npx pkg .",
     "build:clean": "npx rimraf ./dist",
     "build": "npm-run-all build:clean lint build:dist build:bin",
+    "prewatch": "npm-run-all build:clean",
+    "watch": "npx tsc --build --watch",
     "lint:prettier": "npx prettier --write .",
     "lint:eslint": "npx eslint --fix .",
     "lint": "npm-run-all lint:prettier lint:eslint",

@@ -25,6 +25,8 @@ and this project adheres to
 ### Added
 
 - TypeScript
+- Ability to specify Sheet Name
+- Ability to overwrite destination XLSX files
 
 ### Changed
 
