@@ -2,17 +2,17 @@ import fs from 'fs-extra';
 import { parse } from 'csv-parse/sync';
 import xlsx from 'xlsx';
 
-import { OptionalParameters } from './convertCsvToXlsx.types';
+import { APIParameters } from './convertCsvToXlsx.types';
 
 /**
  * CSV to XLSX
  *
  * @throws Error
  */
-function convertCsvToXlsx(
+export function convertCsvToXlsx(
   source: string,
   destination: string,
-  { sheetName = '' }: OptionalParameters = {},
+  { sheetName = '' }: APIParameters = {},
 ) {
   // sanity checks
   if (typeof source !== 'string' || typeof destination !== 'string') {
@@ -55,5 +55,3 @@ function convertCsvToXlsx(
   // write the xlsx workbook to destination
   xlsx.writeFile(wb, destination);
 }
-
-export default convertCsvToXlsx;

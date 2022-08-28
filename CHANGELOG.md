@@ -28,6 +28,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 
 - Decoupled CLI and API implementations
+- Changed API export to conform to CJS and ESM
 
 ## [1.1.1]
 

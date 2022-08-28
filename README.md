@@ -47,7 +47,7 @@ npx @aternus/csv-to-xlsx -i "input-directory" -o "output-directory"
 
 ```javascript
 const path = require('path');
-const convertCsvToXlsx = require('@aternus/csv-to-xlsx');
+const { convertCsvToXlsx } = require('@aternus/csv-to-xlsx');
 
 let source = path.join(__dirname, 'report.csv');
 let destination = path.join(__dirname, 'converted_report.xlsx');

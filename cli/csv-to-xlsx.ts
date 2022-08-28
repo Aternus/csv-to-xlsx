@@ -4,7 +4,8 @@ import path from 'path';
 import fs from 'fs-extra';
 import { program } from 'commander';
 
-import convertCsvToXlsx from '../src/convertCsvToXlsx';
+import { convertCsvToXlsx } from '../src/convertCsvToXlsx';
+import { CLIParameters } from './csv-to-xlsx.types';
 import pkg from '../package.json';
 
 program
@@ -34,7 +35,7 @@ program.on('--help', function () {
 
 program.parse(process.argv);
 
-const programOptions = program.opts();
+const programOptions = program.opts<CLIParameters>();
 
 const csvPath = path.join(process.cwd(), programOptions.inputDir);
 const xlsxPath = path.join(process.cwd(), programOptions.outputDir);
@@ -64,12 +65,14 @@ for (const file of csvFiles) {
   if (fileObject.ext !== '.csv') {
     continue;
   }
-  console.info(`Converting: ${fileObject.name}`);
+  console.info(`Converting: ${file}`);
   // convert
   try {
     const source = path.join(csvPath, file);
     const destination = path.join(xlsxPath, `${fileObject.name}.xlsx`);
-    convertCsvToXlsx(source, destination);
+    convertCsvToXlsx(source, destination, {
+      sheetName: programOptions.sheetName,
+    });
   } catch (e) {
     console.error(e.toString());
   }

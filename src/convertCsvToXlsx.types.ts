@@ -1,3 +1,3 @@
-export type OptionalParameters = {
+export type APIParameters = {
   sheetName?: string;
 };

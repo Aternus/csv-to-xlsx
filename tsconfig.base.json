@@ -8,9 +8,11 @@
     "sourceMap": false,
     "removeComments": true,
 
-    "target": "es5",
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "module": "CommonJS",
+    "target": "ES2021",
+    "lib": ["ES2021"],
+
+    "moduleResolution": "Node",
     "esModuleInterop": true,
     "resolveJsonModule": true,
 

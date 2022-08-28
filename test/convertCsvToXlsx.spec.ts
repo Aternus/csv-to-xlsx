@@ -11,7 +11,7 @@
 import path from 'path';
 import fs from 'fs-extra';
 import { expect } from 'chai';
-import convertCsvToXlsx from '../src/convertCsvToXlsx';
+import { convertCsvToXlsx } from '../src/convertCsvToXlsx';
 
 describe(`convertCsvToXlsx`, function () {
   //
