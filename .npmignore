@@ -11,3 +11,4 @@ prettier.config.js
 .mocharc.js
 tsconfig*
 *.sh
+CHANGELOG.md

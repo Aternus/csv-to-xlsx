@@ -20,6 +20,17 @@ and this project adheres to
 
 ### Security
 
+## [2.0.4]
+
+### Changed
+
+- Updated to TypeScript v5
+- Compiled binaries with Node v18 as base
+
+### Security
+
+- Updated npm dependencies
+
 ## [2.0.3]
 
 ### Fixed
