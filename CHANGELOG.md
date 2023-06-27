@@ -20,6 +20,13 @@ and this project adheres to
 
 ### Security
 
+## [2.0.6]
+
+### Security
+
+- Changed from npmjs's xlsx package to SheetJS xlsx package
+  [Issue 24](https://github.com/Aternus/csv-to-xlsx/issues/24)
+
 ## [2.0.5]
 
 ### Changed
