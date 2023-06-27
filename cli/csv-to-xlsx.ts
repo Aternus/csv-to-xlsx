@@ -11,8 +11,8 @@ import pkg from '../package.json';
 program
   .version(pkg.version, '-v, --version')
   .option(
-    '-i, --input-dir [dir]',
-    'Input directory that has the CSV files',
+    '-i, --input [input]',
+    'Input CSV file or directory containing CSV files',
     'csv',
   )
   .option(
@@ -42,46 +42,37 @@ program.parse(process.argv);
 
 const programOptions = program.opts<CLIParameters>();
 
-const csvPath = path.join(process.cwd(), programOptions.inputDir);
-const xlsxPath = path.join(process.cwd(), programOptions.outputDir);
+const inputPath = path.resolve(programOptions.input);
+const outputPath = path.resolve(programOptions.outputDir);
 
-// check the csvPath
-if (!fs.existsSync(csvPath)) {
-  // csv folder doesn't exist, doing it wrong
-  console.error(`Invalid input directory: ${csvPath}\n`);
+if (!fs.existsSync(inputPath)) {
+  console.error(`Invalid input: ${inputPath}`);
   process.exitCode = 1;
-  program.help(); // exit immediately
+  program.help();
 }
 
-// check the xlsxPath
-if (!fs.existsSync(xlsxPath)) {
-  // create xlsx folder
-  console.info(`Creating output directory: ${xlsxPath}`);
-  fs.mkdirSync(xlsxPath, {recursive: true});
+if (!fs.existsSync(outputPath)) {
+  fs.mkdirSync(outputPath, {recursive: true});
 }
 
-// read csvPath
-const csvFiles = fs.readdirSync(csvPath);
-
-for (const file of csvFiles) {
-  // parse file
-  const fileObject = path.parse(file);
-  // check file extension
-  if (fileObject.ext !== '.csv') {
-    continue;
-  }
-  console.info(`Converting: ${file}`);
-  // convert
-  try {
-    const source = path.join(csvPath, file);
-    const destination = path.join(xlsxPath, `${fileObject.name}.xlsx`);
-    convertCsvToXlsx(source, destination, {
+const convertFile = (sourceFile) => {
+  const fileObject = path.parse(sourceFile);
+  if (fileObject.ext === '.csv') {
+    console.info(`Converting: ${sourceFile}`);
+    const destination = path.resolve(outputPath, `${fileObject.name}.xlsx`);
+    convertCsvToXlsx(sourceFile, destination, {
       sheetName: programOptions.sheetName,
       overwrite: Boolean(programOptions.force),
     });
-  } catch (e) {
-    console.error(e.toString());
   }
+};
+
+if (fs.statSync(inputPath).isDirectory()) {
+  for (const file of fs.readdirSync(inputPath)) {
+    convertFile(path.resolve(inputPath, file));
+  }
+} else {
+  convertFile(inputPath);
 }
 
-console.info(`Complete.`);
+console.info(`Conversion complete.`);

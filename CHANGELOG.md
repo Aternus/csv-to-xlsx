@@ -20,6 +20,13 @@ and this project adheres to
 
 ### Security
 
+## [2.1.0]
+
+### Added
+
+- Added ability to specify a single file as input
+  [Issue 11](https://github.com/Aternus/csv-to-xlsx/issues/11)
+
 ## [2.0.6]
 
 ### Security

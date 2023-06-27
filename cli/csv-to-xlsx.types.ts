@@ -1,5 +1,5 @@
 export type CLIParameters = {
-  inputDir: string;
+  input: string;
   outputDir: string;
   sheetName: string;
   force: boolean;
