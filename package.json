@@ -73,12 +73,12 @@
     "mocha": "^10.0.0",
     "npm-run-all": "^4.1.5",
     "pkg": "^5.1.0",
-    "prettier": "^2.8.8",
+    "prettier": "2.8.8",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
   },
   "dependencies": {
-    "commander": "^10.0.1",
+    "commander": "^11.0.0",
     "csv-parse": "^5.0.4",
     "fs-extra": "^11.1.1",
     "xlsx": "^0.18.5"

@@ -2,10 +2,10 @@
 
 import path from 'path';
 import fs from 'fs-extra';
-import { program } from 'commander';
+import {program} from 'commander';
 
-import { convertCsvToXlsx } from '../src/convertCsvToXlsx';
-import { CLIParameters } from './csv-to-xlsx.types';
+import {convertCsvToXlsx} from '../src/convertCsvToXlsx';
+import {CLIParameters} from './csv-to-xlsx.types';
 import pkg from '../package.json';
 
 program
@@ -57,7 +57,7 @@ if (!fs.existsSync(csvPath)) {
 if (!fs.existsSync(xlsxPath)) {
   // create xlsx folder
   console.info(`Creating output directory: ${xlsxPath}`);
-  fs.mkdirSync(xlsxPath, { recursive: true });
+  fs.mkdirSync(xlsxPath, {recursive: true});
 }
 
 // read csvPath

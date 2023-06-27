@@ -10,8 +10,8 @@
 
 import path from 'path';
 import fs from 'fs-extra';
-import { expect } from 'chai';
-import { convertCsvToXlsx } from '../src/convertCsvToXlsx';
+import {expect} from 'chai';
+import {convertCsvToXlsx} from '../src/convertCsvToXlsx';
 
 function doCsvToXlsxConversion(emptyOutputPath = false, overwrite = false) {
   const csvPath = path.join(__dirname, 'csv');

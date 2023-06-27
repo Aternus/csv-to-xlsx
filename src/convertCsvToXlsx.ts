@@ -1,8 +1,8 @@
 import fs from 'fs-extra';
-import { parse } from 'csv-parse/sync';
+import {parse} from 'csv-parse/sync';
 import xlsx from 'xlsx';
 
-import { APIParameters } from './convertCsvToXlsx.types';
+import {APIParameters} from './convertCsvToXlsx.types';
 
 /**
  * CSV to XLSX
@@ -12,7 +12,7 @@ import { APIParameters } from './convertCsvToXlsx.types';
 export function convertCsvToXlsx(
   source: string,
   destination: string,
-  { sheetName = '', overwrite = false }: APIParameters = {},
+  {sheetName = '', overwrite = false}: APIParameters = {},
 ) {
   // sanity checks
   if (typeof source !== 'string' || typeof destination !== 'string') {
@@ -32,7 +32,7 @@ export function convertCsvToXlsx(
   }
 
   // read source
-  const csvFile = fs.readFileSync(source, { encoding: 'utf-8' });
+  const csvFile = fs.readFileSync(source, {encoding: 'utf-8'});
 
   // csv parser options
   const csvOptions = {

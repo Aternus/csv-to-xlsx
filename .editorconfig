@@ -1,0 +1,18 @@
+# editorconfig.org
+root = true
+
+[*]
+max_line_length = 80
+indent_style = space
+indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[{*.html,*.ejs}]
+ij_html_enforce_quotes = true
+ij_html_quote_style = single
+
+[*.md]
+trim_trailing_whitespace = false
