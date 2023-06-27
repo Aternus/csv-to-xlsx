@@ -32,7 +32,7 @@ npm install @aternus/csv-to-xlsx
 Download the executables from the `bin` folder.
 
 ```bash
-./csv-to-xlsx-linux -i "input-directory" -o "output-directory"
+./csv-to-xlsx-linux -i "input-file-or-directory" -o "output-directory"
 ```
 
 ### Node.js CLI
@@ -40,7 +40,7 @@ Download the executables from the `bin` folder.
 Type `--help` for a full list of options.
 
 ```bash
-npx @aternus/csv-to-xlsx -i "input-directory" -o "output-directory"
+npx @aternus/csv-to-xlsx -i "input-file-or-directory" -o "output-directory"
 ```
 
 ### Node.js API

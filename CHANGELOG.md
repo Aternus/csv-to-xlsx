@@ -22,6 +22,12 @@ and this project adheres to
 
 ## [2.1.0]
 
+### Changed
+
+- Updated README
+
+## [2.1.0]
+
 ### Added
 
 - Added ability to specify a single file as input
