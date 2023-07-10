@@ -46,6 +46,41 @@ function doCsvToXlsxConversion(
   }
 }
 
+function doCsvToXlsxConversionBuffer(input) {
+  const csvPath = path.resolve(__dirname, input);
+  const xlsxPath = path.resolve(__dirname, 'xlsx');
+
+  const convertFile = (sourceFile) => {
+    const fileObject = path.parse(sourceFile);
+    if (fileObject.ext === '.csv') {
+      const destination = path.resolve(xlsxPath, `${fileObject.name}.xlsx`);
+      const content = fs.readFileSync(sourceFile);
+      const valid = fs.readFileSync(destination);
+      const result = convertCsvToXlsx(
+        content.toString(),
+        '',
+        {
+          sheetName: 'sheetName',
+          overwrite: false,
+        },
+        false,
+      );
+
+      if (Buffer.compare(result, valid) !== 0) {
+        throw 'buffer does not match xlsx file';
+      }
+    }
+  };
+
+  if (fs.statSync(csvPath).isDirectory()) {
+    for (const file of fs.readdirSync(csvPath)) {
+      convertFile(path.resolve(csvPath, file));
+    }
+  } else {
+    convertFile(csvPath);
+  }
+}
+
 describe(`convertCsvToXlsx`, function () {
   //
   describe(`Missing arguments`, function () {
@@ -111,6 +146,10 @@ describe(`convertCsvToXlsx`, function () {
       expect(() => {
         doCsvToXlsxConversion('csv/numbers.csv', false, true);
       }).to.not.throw(Error);
+    });
+
+    it(`csv/numbers.csv file to buffer`, function () {
+      doCsvToXlsxConversionBuffer('csv/numbers.csv');
     });
   });
 });

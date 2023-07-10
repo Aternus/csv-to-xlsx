@@ -13,6 +13,7 @@ export function convertCsvToXlsx(
   source: string,
   destination: string,
   {sheetName = '', overwrite = false}: APIParameters = {},
+  is_path = true,
 ) {
   // sanity checks
   if (typeof source !== 'string' || typeof destination !== 'string') {
@@ -22,17 +23,18 @@ export function convertCsvToXlsx(
   }
 
   // source exists
-  if (!fs.existsSync(source)) {
+  if (is_path === true && !fs.existsSync(source)) {
     throw new Error(`source "${source}" doesn't exist.`);
   }
 
   // destination doesn't exist
-  if (fs.existsSync(destination) && !overwrite) {
+  if (!!destination && fs.existsSync(destination) && !overwrite) {
     throw new Error(`destination "${destination}" already exists.`);
   }
 
   // read source
-  const csvFile = fs.readFileSync(source, {encoding: 'utf-8'});
+  const csvFile =
+    is_path === true ? fs.readFileSync(source, {encoding: 'utf-8'}) : source;
 
   // csv parser options
   const csvOptions = {
@@ -52,6 +54,11 @@ export function convertCsvToXlsx(
   const ws = xlsx.utils.json_to_sheet(records);
   xlsx.utils.book_append_sheet(wb, ws, sheetName);
 
-  // write the xlsx workbook to destination
-  xlsx.writeFile(wb, destination);
+  if (destination) {
+    // write the xlsx workbook to destination
+    xlsx.writeFile(wb, destination);
+  } else {
+    // return the xlsx workbook as buffer
+    return xlsx.write(wb, {type: 'buffer', bookType: 'xlsx'});
+  }
 }
