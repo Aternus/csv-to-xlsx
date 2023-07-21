@@ -20,6 +20,12 @@ and this project adheres to
 
 ### Security
 
+## [2.1.2]
+
+### Security
+
+- Updated npm dependencies
+
 ## [2.1.1]
 
 ### Changed
