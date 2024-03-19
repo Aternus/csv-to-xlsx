@@ -32,5 +32,7 @@ jobs:
       - name: 'Debug'
         run: |
           git config --list
+          git config --get user.name
+          git config --get user.email
           npm whoami
           echo ${{ github.ref_name }}
