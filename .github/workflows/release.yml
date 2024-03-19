@@ -30,18 +30,8 @@ jobs:
         run: npm run build:dist
       - name: 'Build Binaries'
         run: npm run build:bin
-      #      - run: npm publish
-      #        env:
-      #          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      #      - name: 'Debug'
-      #        run: |
-      #          git config --list
-      #          git config --get user.name
-      #          git config --get user.email
-      #          npm whoami
-      #          echo ${{ github.ref_name }}
       - name: 'Upload Linux Binary'
-        uses: 'actions/upload-release-asset@v1'
+        uses: actions/upload-release-asset@v1
         with:
           asset_name: 'csv-to-xlsx-linux'
           asset_path: 'bin/csv-to-xlsx-linux'
