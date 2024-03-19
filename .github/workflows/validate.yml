@@ -50,13 +50,13 @@ jobs:
           node-version-file: 'package.json'
       - name: 'NPM: install'
         run: npm ci
-      - name: 'Build API and CLI versions'
+      - name: 'Build API and CLI version'
         run: npm run build:dist
-      - name: 'Validate API (Unit Tests)'
+      - name: 'Validate API'
         run: npm run test:api
-      - name: 'Validate CLI (Exit code)'
+      - name: 'Validate CLI'
         run: npm run test:cli
       - name: 'Build Binary version'
         run: npm run build:bin
-      - name: 'Validate Binary version'
+      - name: 'Validate Binary'
         run: npm run test:bin -- -p ${{ matrix.platform }}
