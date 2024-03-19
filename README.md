@@ -10,6 +10,10 @@ Binaries are available for:
 - Linux x64
 - MacOS x64
 
+[![validate](https://github.com/Aternus/csv-to-xlsx/actions/workflows/validate.yml/badge.svg?branch=master)](https://github.com/Aternus/csv-to-xlsx/actions/workflows/validate.yml)
+
+Install with confidence 🛡️
+
 ## Features
 
 - Binaries - download and run via your OS's command-line utility
