@@ -5,6 +5,7 @@ on:
     types:
       - published
       - created
+      - edited
 
 permissions:
   contents: write
