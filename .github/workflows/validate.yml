@@ -28,10 +28,19 @@ jobs:
         run: npm run lint:eslint
 
   test:
-    name: 'Test'
     needs:
       - lint
-    runs-on: 'ubuntu-latest'
+    strategy:
+      matrix:
+        include:
+          - os: 'ubuntu-latest'
+            platform: 'linux'
+          - os: 'macos-latest'
+            platform: 'macos'
+          - os: 'windows-latest'
+            platform: 'win'
+    runs-on: ${{ matrix.os }}
+    name: 'Node.js on ${{ matrix.os }}'
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v4
@@ -41,7 +50,13 @@ jobs:
           node-version-file: 'package.json'
       - name: 'NPM: install'
         run: npm ci
-      - name: 'Build'
-        run: npm run build
-      - name: 'Validate Unit Tests'
-        run: npm run test
+      - name: 'Build API and CLI versions'
+        run: npm run build:dist
+      - name: 'Validate API (Unit Tests)'
+        run: npm run test:api
+      - name: 'Validate CLI (Exit code)'
+        run: npm run test:cli
+      - name: 'Build Binary version'
+        run: npm run build:bin
+      - name: 'Validate Binary version'
+        run: npm run test:bin -- -p ${{ matrix.platform }}
