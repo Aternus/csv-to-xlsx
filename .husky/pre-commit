@@ -1,0 +1,3 @@
+npm run lint:prettier
+npm run lint:eslint
+npm run test:api

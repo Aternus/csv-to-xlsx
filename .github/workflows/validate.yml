@@ -1,0 +1,62 @@
+name: 'validate'
+
+on:
+  pull_request:
+    branches: ['master']
+  push:
+    branches: ['master']
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: 'Lint'
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v4
+      - name: 'Setup Node.js'
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: 'package.json'
+      - name: 'NPM: install'
+        run: npm ci
+      - name: 'Validate Code Styling'
+        run: npm run lint:prettier
+      - name: 'Static Code Analysis'
+        run: npm run lint:eslint
+
+  test:
+    needs:
+      - lint
+    strategy:
+      matrix:
+        include:
+          - os: 'ubuntu-latest'
+            platform: 'linux'
+          - os: 'macos-latest'
+            platform: 'macos'
+          - os: 'windows-latest'
+            platform: 'win'
+    runs-on: ${{ matrix.os }}
+    name: 'Node.js on ${{ matrix.os }}'
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v4
+      - name: 'Setup Node.js'
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: 'package.json'
+      - name: 'NPM: install'
+        run: npm ci
+      - name: 'Build API and CLI version'
+        run: npm run build:dist
+      - name: 'Validate API'
+        run: npm run test:api
+      - name: 'Validate CLI'
+        run: npm run test:cli
+      - name: 'Build Binary version'
+        run: npm run build:bin
+      - name: 'Validate Binary'
+        run: npm run test:bin -- -p ${{ matrix.platform }}

@@ -20,6 +20,12 @@ and this project adheres to
 
 ### Security
 
+## [2.1.4]
+
+### Added
+
+- Added GitHub Actions (Workflows)
+
 ## [2.1.3]
 
 ### Added
