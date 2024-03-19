@@ -6,6 +6,9 @@ on:
       - published
       - created
 
+permissions:
+  contents: write
+
 jobs:
   publish:
     name: 'Release to npm.js'
