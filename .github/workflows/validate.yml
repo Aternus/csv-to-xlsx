@@ -1,48 +1,45 @@
-name: "validate"
+name: 'validate'
 
 on:
   pull_request:
-    branches: [ "master" ]
+    branches: ['master']
   push:
-    branches: [ "master" ]
+    branches: ['master']
 
 permissions:
   contents: read
 
 jobs:
   lint:
-    name: "Lint"
-    runs-on: "ubuntu-latest"
+    name: 'Lint'
+    runs-on: 'ubuntu-latest'
     steps:
-      - name: "Checkout"
+      - name: 'Checkout'
         uses: actions/checkout@v4
-      - name: "Setup Node.js"
+      - name: 'Setup Node.js'
         uses: actions/setup-node@v4
         with:
-          node-version-file: "package.json"
-      - name: "NPM: install"
+          node-version-file: 'package.json'
+      - name: 'NPM: install'
         run: npm ci
-      - name: "Validate Code Styling"
+      - name: 'Validate Code Styling'
         run: npm run lint:prettier
-      - name: "Static Code Analysis"
+      - name: 'Static Code Analysis'
         run: npm run lint:eslint
 
-
   test:
-    name: "Test"
-    runs-on: "ubuntu-latest"
+    name: 'Test'
+    runs-on: 'ubuntu-latest'
     steps:
-      - name: "Checkout"
+      - name: 'Checkout'
         uses: actions/checkout@v4
-      - name: "Setup Node.js"
+      - name: 'Setup Node.js'
         uses: actions/setup-node@v4
         with:
-          node-version-file: "package.json"
-      - name: "NPM: install"
+          node-version-file: 'package.json'
+      - name: 'NPM: install'
         run: npm ci
-      - name: "Build"
+      - name: 'Build'
         run: npm run build
-      - name: "Validate Unit Tests"
+      - name: 'Validate Unit Tests'
         run: npm run test
-
-
