@@ -24,6 +24,7 @@
     "csv-to-xlsx": "dist/cli/csv-to-xlsx.js"
   },
   "scripts": {
+    "prepare": "husky",
     "clean": "npx rimraf ./dist ./bin",
     "build:dist": "npx tsc --build",
     "build:dist:watch": "npx tsc --build --watch",
@@ -34,12 +35,9 @@
     "test:api": "npx jest",
     "test:cli": "npx csv-to-xlsx --help",
     "test:bin": "node ./platform.tester.mjs",
+    "prestart:cli": "npm run build:dist",
     "start:cli": "npx csv-to-xlsx",
-    "start": "npm-run-all build:dist start:cli",
-    "preversion": "npm-run-all test",
-    "version": "npm-run-all build git:add",
-    "postversion": "npm-run-all git:push git:push:tags",
-    "prepare": "husky"
+    "start": "npm run start:cli"
   },
   "author": {
     "name": "Kiril Reznik"

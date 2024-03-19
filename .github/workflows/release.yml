@@ -1,0 +1,36 @@
+name: 'release'
+
+on:
+  release:
+    types:
+      - published
+      - created
+
+jobs:
+  publish:
+    name: 'Release to npm.js'
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: '0'
+      - name: 'Setup Node.js'
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: 'package.json'
+          registry-url: 'https://registry.npmjs.org'
+      - name: 'NPM: install'
+        run: npm ci
+      - name: 'Build API and CLI version'
+        run: npm run build:dist
+      - name: 'Build Binaries'
+        run: npm run build:bin
+      #      - run: npm publish
+      #        env:
+      #          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: 'Debug'
+        run: |
+          git config --list
+          npm whoami
+          echo ${{ github.ref_name }}
