@@ -48,3 +48,5 @@ jobs:
           asset_path: 'bin/csv-to-xlsx-linux'
           asset_content_type: 'application/octet-stream'
           upload_url: ${{ github.event.release.upload_url }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
