@@ -51,7 +51,7 @@
   "homepage": "https://github.com/Aternus/csv-to-xlsx",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Aternus/csv-to-xlsx.git"
+    "url": "git+https://github.com/Aternus/csv-to-xlsx.git"
   },
   "bugs": {
     "url": "https://github.com/Aternus/csv-to-xlsx/issues"
