@@ -20,6 +20,24 @@ and this project adheres to
 
 ### Security
 
+## [2.1.3]
+
+### Added
+
+- Added Jest
+
+### Changed
+
+- Updated tests to use Jest syntax
+
+### Removed
+
+- Removed Mocha, Chai
+
+### Security
+
+- Updated npm dependencies
+
 ## [2.1.2]
 
 ### Security
