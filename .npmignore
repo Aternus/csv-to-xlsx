@@ -235,7 +235,7 @@ test/
 .eslintignore
 .eslintrc.js
 .gitignore
-.mocharc.js
+jest.config.ts
 .npmignore
 .nvmrc
 .prettierignore

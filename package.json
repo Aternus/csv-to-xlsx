@@ -35,13 +35,13 @@
     "watch": "npm-run-all clean build:watch",
     "lint:prettier": "npx prettier --check .",
     "lint:eslint": "npx eslint .",
-    "lint": "npm-run-all lint:prettier lint:eslint",
     "test": "npx jest",
     "start:cli": "node ./dist/cli/csv-to-xlsx.js --help",
     "start": "npm-run-all build start:cli",
     "preversion": "npm-run-all test",
     "version": "npm-run-all build git:add",
-    "postversion": "npm-run-all git:push git:push:tags"
+    "postversion": "npm-run-all git:push git:push:tags",
+    "prepare": "husky"
   },
   "author": {
     "name": "Kiril Reznik"
@@ -67,6 +67,7 @@
     "eslint": "^8.39.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-jest": "^27.9.0",
+    "husky": "^9.0.11",
     "jest": "29.7.0",
     "npm-run-all": "^4.1.5",
     "pkg": "^5.1.0",
