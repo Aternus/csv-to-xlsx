@@ -33,7 +33,8 @@ npm install @aternus/csv-to-xlsx
 
 ### Binaries
 
-Download the executables from the `bin` folder.
+Download the executables from the
+[latest release](https://github.com/Aternus/csv-to-xlsx/releases).
 
 ```bash
 ./csv-to-xlsx-linux -i "input-file-or-directory" -o "output-directory"
