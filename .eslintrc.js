@@ -10,4 +10,11 @@ module.exports = {
   env: {
     node: true,
   },
+  overrides: [
+    {
+      files: ['test/**'],
+      plugins: ['jest'],
+      extends: ['plugin:jest/recommended'],
+    },
+  ],
 };
