@@ -73,6 +73,6 @@ jobs:
       - name: 'Build API and CLI version'
         run: npm run build:dist
       - name: 'NPM: publish'
-        run: npm publish --dry-run=true
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
