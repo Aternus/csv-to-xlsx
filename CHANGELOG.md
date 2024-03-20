@@ -20,6 +20,12 @@ and this project adheres to
 
 ### Security
 
+## [2.1.5]
+
+### Fixed
+
+- Fixed version number returning v0.0.0 in generated binaries
+
 ## [2.1.4]
 
 ### Added
