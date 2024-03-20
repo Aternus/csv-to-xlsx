@@ -226,6 +226,8 @@ dist
 # ATERNUS
 .idea/
 .run/
+.github/
+.husky/
 bin/
 cli/
 src/
@@ -239,6 +241,7 @@ jest.config.ts
 .npmignore
 .nvmrc
 .prettierignore
+platform.tester.mjs
 prettier.config.js
 *.sh
 tsconfig*
