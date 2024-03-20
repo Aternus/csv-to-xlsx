@@ -4,15 +4,55 @@ on:
   release:
     types:
       - published
-      - created
-      - edited
 
 permissions:
   contents: write
 
 jobs:
+  binaries:
+    name: 'Build Binaries'
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v4
+      - name: 'Setup Node.js'
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: 'package.json'
+      - name: 'NPM: install'
+        run: npm ci
+      - name: 'Build Binaries'
+        run: npm run build:bin
+      - name: 'Upload Linux Binary'
+        uses: actions/upload-release-asset@v1
+        with:
+          asset_name: 'csv-to-xlsx-linux'
+          asset_path: 'bin/csv-to-xlsx-linux'
+          asset_content_type: 'application/octet-stream'
+          upload_url: ${{ github.event.release.upload_url }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: 'Upload MacOS Binary'
+        uses: actions/upload-release-asset@v1
+        with:
+          asset_name: 'csv-to-xlsx-macos'
+          asset_path: 'bin/csv-to-xlsx-macos'
+          asset_content_type: 'application/octet-stream'
+          upload_url: ${{ github.event.release.upload_url }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: 'Upload Windows Binary'
+        uses: actions/upload-release-asset@v1
+        with:
+          asset_name: 'csv-to-xlsx-win.exe'
+          asset_path: 'bin/csv-to-xlsx-win.exe'
+          asset_content_type: 'application/octet-stream'
+          upload_url: ${{ github.event.release.upload_url }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   publish:
-    name: 'Release to npm.js'
+    name: 'Publish to npmjs.com'
     runs-on: 'ubuntu-latest'
     steps:
       - name: 'Checkout'
@@ -26,27 +66,11 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: 'NPM: install'
         run: npm ci
+      - name: 'NPM: set version'
+        run: npm version ${{ github.ref_name }} --git-tag-version=false
       - name: 'Build API and CLI version'
         run: npm run build:dist
-      - name: 'Build Binaries'
-        run: npm run build:bin
-      #      - run: npm publish
-      #        env:
-      #          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: 'Debug'
-        continue-on-error: true
-        run: |
-          git config --list
-          git config --get user.name
-          git config --get user.email
-          npm whoami
-          echo ${{ github.ref_name }}
-      - name: 'Upload Linux Binary'
-        uses: actions/upload-release-asset@v1
-        with:
-          asset_name: 'csv-to-xlsx-linux'
-          asset_path: 'bin/csv-to-xlsx-linux'
-          asset_content_type: 'application/octet-stream'
-          upload_url: ${{ github.event.release.upload_url }}
+      - name: 'NPM: publish'
+        run: npm publish --dry-run=true
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
