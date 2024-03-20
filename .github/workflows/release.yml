@@ -21,6 +21,10 @@ jobs:
           node-version-file: 'package.json'
       - name: 'NPM: install'
         run: npm ci
+      - name: 'NPM: set version'
+        run:
+          npm version ${{ github.event.release.tag_name }}
+          --git-tag-version=false
       - name: 'Build Binaries'
         run: npm run build:bin
       - name: 'Upload Linux Binary'
