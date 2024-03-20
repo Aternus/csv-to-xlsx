@@ -67,7 +67,9 @@ jobs:
       - name: 'NPM: install'
         run: npm ci
       - name: 'NPM: set version'
-        run: npm version ${{ github.ref_name }} --git-tag-version=false
+        run:
+          npm version ${{ github.event.release.tag_name }}
+          --git-tag-version=false
       - name: 'Build API and CLI version'
         run: npm run build:dist
       - name: 'NPM: publish'
