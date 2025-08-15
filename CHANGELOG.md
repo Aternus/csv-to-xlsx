@@ -26,13 +26,15 @@ and this project adheres to
 
 ### Changed
 
-- Node v18.18 is now the minimum supported version.
+- Node v22 is now the minimum supported version.
 - Updated Dev dependencies.
 
 ### Deprecated
 
 ### Removed
 
+- Removed support for Node v20
+- Removed support for Node v18
 - Removed support for Node v16
 
 ### Fixed
