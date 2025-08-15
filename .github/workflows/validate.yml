@@ -35,10 +35,16 @@ jobs:
         include:
           - os: 'ubuntu-latest'
             platform: 'linux'
+            artifact_name: 'csv-to-xlsx-linux'
+            artifact_path: 'bin/csv-to-xlsx-linux'
           - os: 'macos-latest'
             platform: 'macos'
+            artifact_name: 'csv-to-xlsx-macos'
+            artifact_path: 'bin/csv-to-xlsx-macos'
           - os: 'windows-latest'
             platform: 'win'
+            artifact_name: 'csv-to-xlsx-win.exe'
+            artifact_path: 'bin/csv-to-xlsx-win.exe'
     runs-on: ${{ matrix.os }}
     name: 'Node.js on ${{ matrix.os }}'
     steps:
@@ -60,3 +66,11 @@ jobs:
         run: npm run build:bin
       - name: 'Validate Binary'
         run: npm run test:bin -- -p ${{ matrix.platform }}
+      - name: 'Upload ${{ matrix.platform }} Binary'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact_name }}
+          path: ${{ matrix.artifact_path }}
+          if-no-files-found: error
+          retention-days: 7
+          overwrite: 'true'
