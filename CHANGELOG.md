@@ -20,6 +20,28 @@ and this project adheres to
 
 ### Security
 
+## [3.0.0]
+
+### Added
+
+### Changed
+
+- Node v22 is now the minimum supported version.
+- Updated Dev dependencies.
+- Updated dependencies.
+
+### Deprecated
+
+### Removed
+
+- Removed support for Node v20
+- Removed support for Node v18
+- Removed support for Node v16
+
+### Fixed
+
+### Security
+
 ## [2.1.5]
 
 ### Fixed
