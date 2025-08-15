@@ -78,7 +78,7 @@
     "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.1/xlsx-0.20.1.tgz"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=18.18"
   },
   "pkg": {
     "outputPath": "bin",
