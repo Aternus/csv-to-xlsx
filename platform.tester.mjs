@@ -2,34 +2,13 @@ import * as path from 'path';
 import {spawn} from 'child_process';
 import {program} from 'commander';
 
-const basename = 'csv-to-xlsx';
-
-program.requiredOption('-p, --platform [name]', 'The platform name to test');
+program.requiredOption('-b, --binary [path]', 'Path of the binary to test');
 
 program.parse(process.argv);
 
 const options = program.opts();
 
-function getBinaryName(basename, platform) {
-  switch (platform) {
-    case 'linux':
-    case 'macos':
-      return `${basename}-${platform}`;
-    case 'win':
-      return `${basename}-${platform}.exe`;
-  }
-}
-
-const binaryName = getBinaryName(basename, options.platform);
-if (!binaryName) {
-  console.error(`❌ Unsupported platform: ${options.platform}`);
-  process.exit(1);
-}
-
-const binaryPath = path.resolve(
-  'bin',
-  getBinaryName(basename, options.platform),
-);
+const binaryPath = path.resolve(options.binary);
 const expectedExitCode = 1;
 const expectedOutputString = 'Usage: csv-to-xlsx';
 

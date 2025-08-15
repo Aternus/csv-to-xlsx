@@ -65,7 +65,7 @@ jobs:
       - name: 'Build Binary version'
         run: npm run build:bin
       - name: 'Validate Binary'
-        run: npm run test:bin -- -p ${{ matrix.platform }}
+        run: npm run test:bin -- -b ${{ matrix.artifact_path }}
       - name: 'Upload ${{ matrix.platform }} Binary'
         uses: actions/upload-artifact@v4
         with:
