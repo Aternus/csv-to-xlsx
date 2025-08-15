@@ -28,6 +28,7 @@ and this project adheres to
 
 - Node v22 is now the minimum supported version.
 - Updated Dev dependencies.
+- Updated dependencies.
 
 ### Deprecated
 
