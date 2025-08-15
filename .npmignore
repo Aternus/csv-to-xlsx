@@ -234,14 +234,15 @@ src/
 test/
 
 .editorconfig
-eslint.config.mjs
 .gitignore
-jest.config.ts
 .npmignore
+.npmrc
 .nvmrc
 .prettierignore
+CHANGELOG.md
+CONTRIBUTING.md
+eslint.config.mjs
+jest.config.js
 platform.tester.mjs
 prettier.config.js
-*.sh
 tsconfig*
-CHANGELOG.md
