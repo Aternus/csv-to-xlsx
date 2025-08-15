@@ -234,8 +234,7 @@ src/
 test/
 
 .editorconfig
-.eslintignore
-.eslintrc.js
+eslint.config.mjs
 .gitignore
 jest.config.ts
 .npmignore
