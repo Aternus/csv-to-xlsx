@@ -34,15 +34,12 @@ jobs:
       matrix:
         include:
           - os: 'ubuntu-latest'
-            platform: 'linux'
             artifact_name: 'csv-to-xlsx-linux'
             artifact_path: 'bin/csv-to-xlsx-linux'
           - os: 'macos-latest'
-            platform: 'macos'
             artifact_name: 'csv-to-xlsx-macos'
             artifact_path: 'bin/csv-to-xlsx-macos'
           - os: 'windows-latest'
-            platform: 'win'
             artifact_name: 'csv-to-xlsx-win.exe'
             artifact_path: 'bin/csv-to-xlsx-win.exe'
     runs-on: ${{ matrix.os }}
@@ -66,7 +63,7 @@ jobs:
         run: npm run build:bin
       - name: 'Validate Binary'
         run: npm run test:bin -- -b ${{ matrix.artifact_path }}
-      - name: 'Upload ${{ matrix.platform }} Binary'
+      - name: 'Upload Binary'
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.artifact_name }}

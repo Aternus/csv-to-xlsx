@@ -20,9 +20,13 @@ and this project adheres to
 
 ### Security
 
-## [3.0.0]
+## [3.0.1]
 
-### Added
+### Fixed
+
+- Fixed the issue with the signing of binaries.
+
+## [3.0.0]
 
 ### Changed
 
@@ -30,17 +34,11 @@ and this project adheres to
 - Updated Dev dependencies.
 - Updated dependencies.
 
-### Deprecated
-
 ### Removed
 
 - Removed support for Node v20
 - Removed support for Node v18
 - Removed support for Node v16
-
-### Fixed
-
-### Security
 
 ## [2.1.5]
 
