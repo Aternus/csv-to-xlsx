@@ -1,5 +1,11 @@
 # @aternus/csv-to-xlsx
 
+[![version on npm](https://img.shields.io/npm/v/@aternus/csv-to-xlsx?color=cb3837)](https://www.npmjs.com/package/@aternus/csv-to-xlsx)
+[![version on GitHub](https://img.shields.io/github/v/release/Aternus/csv-to-xlsx?sort=semver)](https://github.com/Aternus/csv-to-xlsx/releases)
+[![license](https://img.shields.io/npm/l/@aternus/csv-to-xlsx)](./LICENSE.md)
+[![required node version](https://img.shields.io/node/v/@aternus/csv-to-xlsx)](https://www.npmjs.com/package/@aternus/csv-to-xlsx)
+[![npm downloads](https://img.shields.io/npm/dm/@aternus/csv-to-xlsx)](https://www.npmjs.com/package/@aternus/csv-to-xlsx)
+
 Convert CSV files to XLSX (Excel 2007+ XML Format) files.
 
 Written in JavaScript. Available for Node.js CLI and API.
@@ -9,14 +15,6 @@ Binaries are available for:
 - Windows x64
 - Linux x64
 - macOS x64
-
-## Stats
-
-[![version on npm](https://img.shields.io/npm/v/@aternus/csv-to-xlsx?color=cb3837)](https://www.npmjs.com/package/@aternus/csv-to-xlsx)
-[![version on GitHub](https://img.shields.io/github/v/release/Aternus/csv-to-xlsx?sort=semver)](https://github.com/Aternus/csv-to-xlsx/releases)
-[![license](https://img.shields.io/npm/l/@aternus/csv-to-xlsx)](./LICENSE.md)
-[![required node version](https://img.shields.io/node/v/@aternus/csv-to-xlsx)](https://www.npmjs.com/package/@aternus/csv-to-xlsx)
-[![npm downloads](https://img.shields.io/npm/dm/@aternus/csv-to-xlsx)](https://www.npmjs.com/package/@aternus/csv-to-xlsx)
 
 [![validate](https://github.com/Aternus/csv-to-xlsx/actions/workflows/validate.yml/badge.svg?branch=master)](https://github.com/Aternus/csv-to-xlsx/actions/workflows/validate.yml)
 
