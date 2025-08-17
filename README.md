@@ -118,7 +118,7 @@ certutil -hashfile .\csv-to-xlsx-win.exe SHA256
 
 ### Windows: how to run csv-to-xlsx
 
-TODO: insert video
+[csv-to-xlsx binary - windows.webm](https://github.com/user-attachments/assets/24a73c20-50dd-4c5c-97ce-03e81ab80bbf)
 
 ## License
 
