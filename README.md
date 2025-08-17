@@ -10,15 +10,15 @@ Binaries are available for:
 - Linux x64
 - macOS x64
 
-# @aternus/csv-to-xlsx
+## Stats
 
 [![version on npm](https://img.shields.io/npm/v/@aternus/csv-to-xlsx?color=cb3837)](https://www.npmjs.com/package/@aternus/csv-to-xlsx)
 [![version on GitHub](https://img.shields.io/github/v/release/Aternus/csv-to-xlsx?sort=semver)](https://github.com/Aternus/csv-to-xlsx/releases)
 [![license](https://img.shields.io/npm/l/@aternus/csv-to-xlsx)](./LICENSE.md)
 [![required node version](https://img.shields.io/node/v/@aternus/csv-to-xlsx)](https://www.npmjs.com/package/@aternus/csv-to-xlsx)
+[![npm downloads](https://img.shields.io/npm/dm/@aternus/csv-to-xlsx)](https://www.npmjs.com/package/@aternus/csv-to-xlsx)
 
 [![validate](https://github.com/Aternus/csv-to-xlsx/actions/workflows/validate.yml/badge.svg?branch=master)](https://github.com/Aternus/csv-to-xlsx/actions/workflows/validate.yml)
-[![npm downloads](https://img.shields.io/npm/dm/@aternus/csv-to-xlsx)](https://www.npmjs.com/package/@aternus/csv-to-xlsx)
 
 Install with confidence 🛡️
 
