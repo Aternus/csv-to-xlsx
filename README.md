@@ -114,7 +114,7 @@ certutil -hashfile .\csv-to-xlsx-win.exe SHA256
 
 ### macOS: how to run csv-to-xlsx
 
-TODO: insert video
+[csv-to-xlsx binary - macOS.webm](https://github.com/user-attachments/assets/cca82667-f779-4e4a-88fb-b130328b8667)
 
 ### Windows: how to run csv-to-xlsx
 
