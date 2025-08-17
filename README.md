@@ -1,5 +1,11 @@
 # @aternus/csv-to-xlsx
 
+[![version on npm](https://img.shields.io/npm/v/@aternus/csv-to-xlsx?logo=npm&color=CB3836)](https://www.npmjs.com/package/@aternus/csv-to-xlsx)
+[![version on GitHub](https://img.shields.io/github/v/release/Aternus/csv-to-xlsx?logo=github&sort=semver)](https://github.com/Aternus/csv-to-xlsx/releases)
+[![required node version](https://img.shields.io/node/v/@aternus/csv-to-xlsx?logo=nodedotjs)](https://www.npmjs.com/package/@aternus/csv-to-xlsx)
+[![license](https://img.shields.io/npm/l/@aternus/csv-to-xlsx)](./LICENSE.md)
+[![npm downloads](https://img.shields.io/npm/dm/@aternus/csv-to-xlsx)](https://www.npmjs.com/package/@aternus/csv-to-xlsx)
+
 Convert CSV files to XLSX (Excel 2007+ XML Format) files.
 
 Written in JavaScript. Available for Node.js CLI and API.
@@ -8,7 +14,7 @@ Binaries are available for:
 
 - Windows x64
 - Linux x64
-- MacOS x64
+- macOS x64
 
 [![validate](https://github.com/Aternus/csv-to-xlsx/actions/workflows/validate.yml/badge.svg?branch=master)](https://github.com/Aternus/csv-to-xlsx/actions/workflows/validate.yml)
 
@@ -16,16 +22,16 @@ Install with confidence 🛡️
 
 ## Features
 
-- Binaries - download and run via your OS's command-line utility
+- Binaries: download and run via your OS's command-line utility
 - Fast and Reliable
 - Full UTF-8 support
 - CSV Column detection
-- Batch mode - convert a CSV folder to an XLSX folder
+- Batch mode: convert a CSV folder to an XLSX folder
 - Node.js CLI and API
 
 ## Installation
 
-```bash
+```shell
 npm install @aternus/csv-to-xlsx
 ```
 
@@ -36,15 +42,18 @@ npm install @aternus/csv-to-xlsx
 Download the executables from the
 [latest release](https://github.com/Aternus/csv-to-xlsx/releases).
 
-```bash
+```shell
 ./csv-to-xlsx-linux -i "input-file-or-directory" -o "output-directory"
 ```
+
+Make sure to ONLY use the binaries provided by the project,
+[safe use of binaries (how to avoid viruses)](#safe-use-of-binaries).
 
 ### Node.js CLI
 
 Type `--help` for a full list of options.
 
-```bash
+```shell
 npx @aternus/csv-to-xlsx -i "input-file-or-directory" -o "output-directory"
 ```
 
@@ -63,6 +72,53 @@ try {
   console.error(e.toString());
 }
 ```
+
+## Safe use of Binaries
+
+One of the project's goals is to allow running the CSV to XLSX tool directly on
+your computer.
+
+Create a directory, put the executable inside of it, create a `csv` folder for
+the CSVs and the `xlsx` folder will be populated with the converted files; plain
+and simple, you don't even have to use a terminal (CLI).
+
+To achieve this goal, we pack all the code that makes this possible into a
+single file, called a binary. This binary has a couple of parts, a Node.js
+runtime and the source code of this tool that uses it.
+
+Unfortunately, this
+[causes some Antivirus programs to flag it as a Trojan](https://www.virustotal.com/gui/file/d6de800058997cb8dcb74eb4ce6125fb71d3169bbef7400b0e06fd99fd24008a/detection).
+This is a [known issue](https://github.com/yao-pkg/pkg/issues/167) and should be
+fixed when Node.js ships with a built-in mode for
+[generating single executable applications](https://nodejs.org/api/single-executable-applications.html).
+
+Until then, **please make sure that you download binaries from the
+[release page of csv-to-xlsx](https://github.com/Aternus/csv-to-xlsx/releases)**.
+
+If you have doubts about the origin of your executable, you can check the
+`sha256` of your executable against the one specified in the release assets.
+
+### Checking `sha256` of a binary
+
+macOS / Linux
+
+```shell
+shasum -a 256 ./csv-to-xlsx-macos
+```
+
+Windows:
+
+```shell
+certutil -hashfile .\csv-to-xlsx-win.exe SHA256
+```
+
+### macOS: how to run csv-to-xlsx
+
+[csv-to-xlsx binary - macOS.webm](https://github.com/user-attachments/assets/cca82667-f779-4e4a-88fb-b130328b8667)
+
+### Windows: how to run csv-to-xlsx
+
+[csv-to-xlsx binary - windows.webm](https://github.com/user-attachments/assets/24a73c20-50dd-4c5c-97ce-03e81ab80bbf)
 
 ## License
 
