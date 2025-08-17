@@ -31,7 +31,7 @@ Install with confidence 🛡️
 
 ## Installation
 
-```bash
+```shell
 npm install @aternus/csv-to-xlsx
 ```
 
@@ -42,7 +42,7 @@ npm install @aternus/csv-to-xlsx
 Download the executables from the
 [latest release](https://github.com/Aternus/csv-to-xlsx/releases).
 
-```bash
+```shell
 ./csv-to-xlsx-linux -i "input-file-or-directory" -o "output-directory"
 ```
 
@@ -53,7 +53,7 @@ Make sure to ONLY use the binaries provided by the project,
 
 Type `--help` for a full list of options.
 
-```bash
+```shell
 npx @aternus/csv-to-xlsx -i "input-file-or-directory" -o "output-directory"
 ```
 
@@ -88,8 +88,8 @@ runtime and the source code of this tool that uses it.
 
 Unfortunately, this
 [causes some Antivirus programs to flag it as a Trojan](https://www.virustotal.com/gui/file/d6de800058997cb8dcb74eb4ce6125fb71d3169bbef7400b0e06fd99fd24008a/detection).
-This is a known issue and should be fixed when Node.js ships with a built-in
-mode for
+This is a [known issue](https://github.com/yao-pkg/pkg/issues/167) and should be
+fixed when Node.js ships with a built-in mode for
 [generating single executable applications](https://nodejs.org/api/single-executable-applications.html).
 
 Until then, **please make sure that you download binaries from the
@@ -98,11 +98,25 @@ Until then, **please make sure that you download binaries from the
 If you have doubts about the origin of your executable, you can check the
 `sha256` of your executable against the one specified in the release assets.
 
-### Windows: false positive
+### Checking `sha256` of a binary
+
+macOS / Linux
+
+```shell
+shasum -a 256 ./csv-to-xlsx-macos
+```
+
+Windows:
+
+```shell
+certutil -hashfile .\csv-to-xlsx-win.exe SHA256
+```
+
+### macOS: how to run csv-to-xlsx
 
 TODO: insert video
 
-### macOS: false positive
+### Windows: how to run csv-to-xlsx
 
 TODO: insert video
 
