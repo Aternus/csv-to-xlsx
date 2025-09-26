@@ -22,16 +22,6 @@ and this project adheres to
 
 ## [3.0.2]
 
-### Added
-
-### Changed
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
 ### Security
 
 - Updated dependencies.
