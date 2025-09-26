@@ -20,6 +20,22 @@ and this project adheres to
 
 ### Security
 
+## [3.0.2]
+
+### Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+- Updated dependencies.
+
 ## [3.0.1]
 
 ### Fixed
