@@ -1,42 +1,7 @@
-import path from 'path';
-
 import {describe, expect, test} from '@jest/globals';
-import fs from 'fs-extra';
 
 import {convertCsvToXlsx} from '../src/convertCsvToXlsx';
-
-function doCsvToXlsxConversion(
-  input: string,
-  emptyOutputPath = false,
-  overwrite = false,
-) {
-  const csvPath = path.resolve(__dirname, input);
-  const xlsxPath = path.resolve(__dirname, 'xlsx');
-
-  if (emptyOutputPath) {
-    // empty xlsx folder
-    fs.emptyDirSync(xlsxPath);
-  }
-
-  const convertFile = (sourceFile: string) => {
-    const fileObject = path.parse(sourceFile);
-    if (fileObject.ext === '.csv') {
-      const destination = path.resolve(xlsxPath, `${fileObject.name}.xlsx`);
-      convertCsvToXlsx(sourceFile, destination, {
-        sheetName: 'sheetName',
-        overwrite: overwrite,
-      });
-    }
-  };
-
-  if (fs.statSync(csvPath).isDirectory()) {
-    for (const file of fs.readdirSync(csvPath)) {
-      convertFile(path.resolve(csvPath, file));
-    }
-  } else {
-    convertFile(csvPath);
-  }
-}
+import {doCsvToXlsxConversion} from './helpers';
 
 describe(`Node.js API`, function () {
   test(`Missing arguments should throw an Error`, function () {
