@@ -38,7 +38,7 @@
     "lint:eslint": "npx eslint .",
     "test:api": "npx jest",
     "test:cli": "npx csv-to-xlsx --help",
-    "test:bin": "node platform.tester.js",
+    "test:bin": "node ./platform.tester.js",
     "prestart:cli": "npm run build:dist",
     "start:cli": "npx csv-to-xlsx",
     "start": "npm run start:cli"
