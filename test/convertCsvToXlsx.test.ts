@@ -1,10 +1,12 @@
-import {describe, test, expect} from '@jest/globals';
 import path from 'path';
+
+import {describe, expect, test} from '@jest/globals';
 import fs from 'fs-extra';
+
 import {convertCsvToXlsx} from '../src/convertCsvToXlsx';
 
 function doCsvToXlsxConversion(
-  input,
+  input: string,
   emptyOutputPath = false,
   overwrite = false,
 ) {
@@ -16,7 +18,7 @@ function doCsvToXlsxConversion(
     fs.emptyDirSync(xlsxPath);
   }
 
-  const convertFile = (sourceFile) => {
+  const convertFile = (sourceFile: string) => {
     const fileObject = path.parse(sourceFile);
     if (fileObject.ext === '.csv') {
       const destination = path.resolve(xlsxPath, `${fileObject.name}.xlsx`);
@@ -39,14 +41,14 @@ function doCsvToXlsxConversion(
 describe(`Node.js API`, function () {
   test(`Missing arguments should throw an Error`, function () {
     expect(() => {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
+      // @ts-expect-error no arguments
       convertCsvToXlsx();
     }).toThrow(Error);
   });
 
   test(`Invalid "source" and "destination" arguments should throw an Error`, function () {
     expect(() => {
+      // @ts-expect-error invalid arguments
       convertCsvToXlsx(null, null);
     }).toThrow(Error);
   });

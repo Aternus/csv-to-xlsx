@@ -1,8 +1,9 @@
-import * as path from 'path';
-import {spawn} from 'child_process';
-import {program} from 'commander';
+const path = require('node:path');
+const {spawn} = require('node:child_process');
 
-program.requiredOption('-b, --binary [path]', 'Path of the binary to test');
+const {program} = require('commander');
+
+program.requiredOption('-b, --binary <path>', 'Path of the binary to test');
 
 program.parse(process.argv);
 

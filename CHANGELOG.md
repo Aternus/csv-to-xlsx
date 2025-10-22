@@ -20,6 +20,26 @@ and this project adheres to
 
 ### Security
 
+## [3.0.3]
+
+### Added
+
+- DX enhancements: import sorting with prettier, type safety for tools config.
+
+### Changed
+
+- Updated LICENSE.md.
+- Build: Use NodeNext for module generation and resolution to ensure
+  compatibility with future versions of Node.
+
+### Fixed
+
+- Edge case: the `xlsx` can't detect required node modules in ESM mode.
+
+### Security
+
+- Updated dependencies.
+
 ## [3.0.2]
 
 ### Security

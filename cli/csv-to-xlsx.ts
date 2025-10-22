@@ -1,12 +1,12 @@
 #!/usr/bin/env node
-
 import path from 'path';
-import fs from 'fs-extra';
-import {program} from 'commander';
 
+import {program} from 'commander';
+import fs from 'fs-extra';
+
+import pkg from '../package.json';
 import {convertCsvToXlsx} from '../src/convertCsvToXlsx';
 import {CLIParameters} from './csv-to-xlsx.types';
-import pkg from '../package.json';
 
 program
   .version(pkg.version, '-v, --version')
@@ -55,7 +55,7 @@ if (!fs.existsSync(outputPath)) {
   fs.mkdirSync(outputPath, {recursive: true});
 }
 
-const convertFile = (sourceFile) => {
+const convertFile = (sourceFile: string) => {
   const fileObject = path.parse(sourceFile);
   if (fileObject.ext === '.csv') {
     console.info(`Converting: ${sourceFile}`);

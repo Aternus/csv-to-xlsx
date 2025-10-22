@@ -1,10 +1,9 @@
-import globals from 'globals';
-import eslint from '@eslint/js';
-import tseslint from 'typescript-eslint';
-import pluginJest from 'eslint-plugin-jest';
-
-import {defineConfig, globalIgnores} from 'eslint/config';
-import eslintConfigPrettier from 'eslint-config-prettier/flat';
+const globals = require('globals');
+const eslint = require('@eslint/js');
+const tsESLint = require('typescript-eslint');
+const {defineConfig, globalIgnores} = require('eslint/config');
+const eslintConfigPrettier = require('eslint-config-prettier/flat');
+const pluginJest = require('eslint-plugin-jest');
 
 const config = defineConfig([
   {
@@ -12,7 +11,7 @@ const config = defineConfig([
     files: ['cli/**/*.ts', 'src/**/*.ts', 'test/**/*.ts'],
     extends: [
       eslint.configs.recommended,
-      tseslint.configs.recommended,
+      tsESLint.configs.recommended,
       eslintConfigPrettier,
     ],
     languageOptions: {
@@ -59,4 +58,4 @@ const config = defineConfig([
   ]),
 ]);
 
-export default config;
+module.exports = config;

@@ -1,4 +1,5 @@
 {
+  "extends": "@tsconfig/node22/tsconfig.json",
   "compilerOptions": {
     "rootDir": ".",
 
@@ -8,13 +9,11 @@
     "sourceMap": false,
     "removeComments": true,
 
-    "module": "CommonJS",
-    "target": "ES2021",
-    "lib": ["ES2021"],
-
-    "moduleResolution": "Node",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "esModuleInterop": true,
     "resolveJsonModule": true,
+    "isolatedModules": true,
 
     "forceConsistentCasingInFileNames": true,
     "noEmitOnError": true
