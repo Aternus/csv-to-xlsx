@@ -26,6 +26,8 @@ and this project adheres to
 
 ### Changed
 
+- Updated LICENSE.md.
+
 ### Deprecated
 
 ### Removed
