@@ -1,9 +1,9 @@
-const {path} = require('node:path');
+const path = require('node:path');
 const {spawn} = require('node:child_process');
 
 const {program} = require('commander');
 
-program.requiredOption('-b, --binary [path]', 'Path of the binary to test');
+program.requiredOption('-b, --binary <path>', 'Path of the binary to test');
 
 program.parse(process.argv);
 

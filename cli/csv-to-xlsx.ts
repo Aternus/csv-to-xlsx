@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 import path from 'path';
 
-import pkg from '@aternus/csv-to-xlsx/package.json';
 import {program} from 'commander';
 import fs from 'fs-extra';
 
+import pkg from '../package.json';
 import {convertCsvToXlsx} from '../src/convertCsvToXlsx';
 import {CLIParameters} from './csv-to-xlsx.types';
 
