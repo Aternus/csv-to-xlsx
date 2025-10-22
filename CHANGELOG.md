@@ -32,10 +32,6 @@ and this project adheres to
 - Build: Use NodeNext for module generation and resolution to ensure
   compatibility with future versions of Node.
 
-### Deprecated
-
-### Removed
-
 ### Fixed
 
 - Edge case: the `xlsx` can't detect required node modules in ESM mode.
