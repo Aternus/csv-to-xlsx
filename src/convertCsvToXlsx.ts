@@ -1,5 +1,5 @@
 import {parse} from 'csv-parse/sync';
-import fs from 'fs-extra';
+import fse from 'fs-extra';
 import xlsx from 'xlsx';
 
 import type {APIParameters} from './convertCsvToXlsx.types';
@@ -22,17 +22,17 @@ export function convertCsvToXlsx(
   }
 
   // source exists
-  if (!fs.existsSync(source)) {
+  if (!fse.existsSync(source)) {
     throw new Error(`source "${source}" doesn't exist.`);
   }
 
   // destination doesn't exist
-  if (fs.existsSync(destination) && !overwrite) {
+  if (fse.existsSync(destination) && !overwrite) {
     throw new Error(`destination "${destination}" already exists.`);
   }
 
   // read source
-  const csvFile = fs.readFileSync(source, {encoding: 'utf-8'});
+  const csvFile = fse.readFileSync(source, {encoding: 'utf-8'});
 
   // csv parser options
   const csvOptions = {
