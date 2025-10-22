@@ -24,15 +24,21 @@ and this project adheres to
 
 ### Added
 
+- DX enhancements: import sorting with prettier, type safety for tools config.
+
 ### Changed
 
 - Updated LICENSE.md.
+- Build: Use NodeNext for module generation and resolution to ensure
+  compatibility with future versions of Node.
 
 ### Deprecated
 
 ### Removed
 
 ### Fixed
+
+- Edge case: the `xlsx` can't detect required node modules in ESM mode.
 
 ### Security
 

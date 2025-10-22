@@ -1,9 +1,9 @@
-import eslint from '@eslint/js';
-import pluginVitest from '@vitest/eslint-plugin';
-import eslintConfigPrettier from 'eslint-config-prettier/flat';
-import {defineConfig, globalIgnores} from 'eslint/config';
-import globals from 'globals';
-import tseslint from 'typescript-eslint';
+const globals = require('globals');
+const eslint = require('@eslint/js');
+const tsESLint = require('typescript-eslint');
+const {defineConfig, globalIgnores} = require('eslint/config');
+const eslintConfigPrettier = require('eslint-config-prettier/flat');
+const pluginJest = require('eslint-plugin-jest');
 
 const config = defineConfig([
   {
@@ -11,7 +11,7 @@ const config = defineConfig([
     files: ['cli/**/*.ts', 'src/**/*.ts', 'test/**/*.ts'],
     extends: [
       eslint.configs.recommended,
-      tseslint.configs.recommended,
+      tsESLint.configs.recommended,
       eslintConfigPrettier,
     ],
     languageOptions: {
@@ -23,7 +23,7 @@ const config = defineConfig([
   {
     name: 'source-code-tests',
     files: ['test/**/*.ts'],
-    extends: [pluginVitest.configs.recommended],
+    extends: [pluginJest.configs['flat/recommended']],
   },
   {
     name: 'config-files-commonjs',
@@ -58,4 +58,4 @@ const config = defineConfig([
   ]),
 ]);
 
-export default config;
+module.exports = config;

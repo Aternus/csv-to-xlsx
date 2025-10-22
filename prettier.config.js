@@ -1,4 +1,8 @@
-module.exports = {
+/**
+ * @see https://prettier.io/docs/configuration
+ * @type {import("prettier").Config}
+ */
+const config = {
   semi: true,
   singleQuote: true,
   quoteProps: 'consistent',
@@ -24,3 +28,5 @@ module.exports = {
   ],
   importOrderTypeScriptVersion: '5.0.0',
 };
+
+module.exports = config;

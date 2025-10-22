@@ -241,8 +241,8 @@ test/
 .prettierignore
 CHANGELOG.md
 CONTRIBUTING.md
-eslint.config.mjs
+eslint.config.js
 jest.config.js
-platform.tester.mjs
+platform.tester.js
 prettier.config.js
 tsconfig*

@@ -1,7 +1,7 @@
 import path from 'path';
 
+import {describe, expect, test} from '@jest/globals';
 import fs from 'fs-extra';
-import {describe, expect, test} from 'vitest';
 
 import {convertCsvToXlsx} from '../src/convertCsvToXlsx';
 
