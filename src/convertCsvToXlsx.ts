@@ -5,7 +5,7 @@ import xlsx from 'xlsx';
 import type {APIParameters} from './convertCsvToXlsx.types';
 
 /**
- * CSV to XLSX
+ * Convert CSV to XLSX
  *
  * @throws Error
  */
