@@ -1,10 +1,9 @@
-import globals from 'globals';
 import eslint from '@eslint/js';
-import tseslint from 'typescript-eslint';
-import pluginJest from 'eslint-plugin-jest';
-
-import {defineConfig, globalIgnores} from 'eslint/config';
+import pluginVitest from '@vitest/eslint-plugin';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
+import {defineConfig, globalIgnores} from 'eslint/config';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
 const config = defineConfig([
   {
@@ -24,7 +23,7 @@ const config = defineConfig([
   {
     name: 'source-code-tests',
     files: ['test/**/*.ts'],
-    extends: [pluginJest.configs['flat/recommended']],
+    extends: [pluginVitest.configs.recommended],
   },
   {
     name: 'config-files-commonjs',

@@ -1,5 +1,6 @@
-import * as path from 'path';
 import {spawn} from 'child_process';
+import * as path from 'path';
+
 import {program} from 'commander';
 
 program.requiredOption('-b, --binary [path]', 'Path of the binary to test');

@@ -1,8 +1,8 @@
-import fs from 'fs-extra';
 import {parse} from 'csv-parse/sync';
+import fs from 'fs-extra';
 import xlsx from 'xlsx';
 
-import {APIParameters} from './convertCsvToXlsx.types';
+import type {APIParameters} from './convertCsvToXlsx.types';
 
 /**
  * CSV to XLSX
