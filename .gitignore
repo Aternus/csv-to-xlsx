@@ -226,4 +226,3 @@ dist
 # ATERNUS
 dist/
 bin/
-test/benchmark/
