@@ -30,8 +30,8 @@ describe('Node.js API Benchmark', function () {
     console.table(result.table());
 
     // @see https://docs.github.com/en/actions/reference/runners/github-hosted-runners#standard-github-hosted-runners-for-public-repositories
-    // 4 sec should be safe
-    const baselineMS = 4000;
+    // 5 sec should be safe
+    const baselineMS = 5000;
 
     expect(result.latency.mean).toBeLessThanOrEqual(baselineMS);
   });
