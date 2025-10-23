@@ -8,8 +8,8 @@ import {convertCsvToXlsx} from '../src/convertCsvToXlsx';
 
 const source = path.resolve(__dirname, 'csv/FL_insurance_sample.csv');
 
-describe('Node.js API Performance', function () {
-  test(`File should be present`, function () {
+describe('Node.js API Benchmark', function () {
+  test(`Benchmark file should be present`, function () {
     const sourceSize = 4123652;
     const stats = fse.statSync(source);
     expect(stats.size).toEqual(sourceSize);
