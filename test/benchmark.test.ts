@@ -6,16 +6,13 @@ import {Bench} from 'tinybench';
 
 import {convertCsvToXlsx} from '../src/convertCsvToXlsx';
 
-const source = path.resolve(__dirname, 'csv/FL_insurance_sample.csv');
-
 describe('Node.js API Benchmark', function () {
-  test(`Benchmark file should be present`, function () {
+  test(`Benchmark convertCsvToXlsx`, function () {
+    const source = path.resolve(__dirname, 'csv/FL_insurance_sample.csv');
     const sourceSize = 4123652;
     const stats = fse.statSync(source);
     expect(stats.size).toEqual(sourceSize);
-  });
 
-  test(`Benchmark convertCsvToXlsx`, function () {
     const directory = path.resolve(__dirname, 'benchmark');
     const destination = path.resolve(directory, 'FL_insurance_sample.xlsx');
     fse.mkdirpSync(directory);
