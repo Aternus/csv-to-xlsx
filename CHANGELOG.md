@@ -20,6 +20,22 @@ and this project adheres to
 
 ### Security
 
+## [3.0.4]
+
+### Added
+
+- Added benchmark to measure the performance of csv-to-xlsx Node.js API.
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
 ## [3.0.3]
 
 ### Added

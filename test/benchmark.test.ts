@@ -28,7 +28,9 @@ describe('Node.js API Benchmark', function () {
 
     bench.runSync();
 
-    const baselineMS = 1500; // ~1.5 sec
+    // @see https://docs.github.com/en/actions/reference/runners/github-hosted-runners#standard-github-hosted-runners-for-public-repositories
+    // 4 sec should be safe
+    const baselineMS = 4000;
     const [testResults] = bench.results;
 
     console.table(bench.table());
