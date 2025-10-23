@@ -1,6 +1,10 @@
 {
   "extends": "../tsconfig.base.json",
-  "files": ["convertCsvToXlsx.ts", "convertCsvToXlsx.types.ts"],
+  "files": [
+    "convertCsvToXlsx.ts",
+    "convertCsvToXlsx.types.ts",
+    "performance.ts"
+  ],
   "compilerOptions": {
     "outDir": "../dist"
   }

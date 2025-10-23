@@ -16,13 +16,15 @@ module.exports = {
 
   // A map from regular expressions to paths to transformers.
   transform: {
-    '^.+\\.ts$': [
+    '^.+\\.[tj]s$': [
       'ts-jest',
       {
         tsconfig: '<rootDir>/test/tsconfig.json',
       },
     ],
   },
+
+  transformIgnorePatterns: ['/node_modules/(?!tinybench)'],
 
   // A list of paths to directories that Jest should use to search for files in.
   roots: ['<rootDir>/test'],

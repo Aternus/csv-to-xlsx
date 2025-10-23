@@ -24,37 +24,37 @@ describe(`Node.js API`, function () {
     }).toThrow(Error);
   });
 
-  test(`convert csv/*.csv files to xlsx/*.xlsx files`, function () {
+  test(`Convert csv/*.csv files to xlsx/*.xlsx files`, function () {
     expect(() => {
       doCsvToXlsxConversion('csv', true);
     }).not.toThrow(Error);
   });
 
-  test(`convert csv/numbers.csv file to xlsx/numbers.xlsx file`, function () {
+  test(`Convert csv/numbers.csv file to xlsx/numbers.xlsx file`, function () {
     expect(() => {
       doCsvToXlsxConversion('csv/numbers.csv', true);
     }).not.toThrow(Error);
   });
 
-  test(`overwriting files should throw an Error`, function () {
+  test(`Overwriting files should throw an Error`, function () {
     expect(() => {
       doCsvToXlsxConversion('csv');
     }).toThrow(Error);
   });
 
-  test(`overwriting files with force should not throw an Error`, function () {
+  test(`Overwriting files with force should not throw an Error`, function () {
     expect(() => {
       doCsvToXlsxConversion('csv', false, true);
     }).not.toThrow(Error);
   });
 
-  test(`overwriting a single file should throw an Error`, function () {
+  test(`Overwriting a single file should throw an Error`, function () {
     expect(() => {
       doCsvToXlsxConversion('csv/numbers.csv');
     }).toThrow(Error);
   });
 
-  test(`overwriting a single file with force should not throw an Error`, function () {
+  test(`Overwriting a single file with force should not throw an Error`, function () {
     expect(() => {
       doCsvToXlsxConversion('csv/numbers.csv', false, true);
     }).not.toThrow(Error);
