@@ -34,6 +34,8 @@ describe('Node.js API Performance', function () {
     const baselineMS = 1500; // ~1.5 sec
     const [testResults] = bench.results;
 
+    console.table(bench.table());
+
     expect(testResults?.latency.mean).toBeLessThanOrEqual(baselineMS);
   });
 });
