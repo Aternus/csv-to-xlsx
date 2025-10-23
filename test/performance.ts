@@ -22,7 +22,8 @@ type BenchmarkIteration = {
 };
 
 type BenchmarkTable = {
-  'Duration': number;
+  'Name': string;
+  'Duration (ms)': number;
   'RSS Δ': number;
   'Heap Total Δ': number;
   'Heap Used Δ': number;
@@ -31,10 +32,11 @@ type BenchmarkTable = {
 }[];
 
 type BenchmarkResult = {
+  name: string;
+  results: BenchmarkIteration[];
   latency: {
     mean: number;
   };
-  results: BenchmarkIteration[];
   table: () => BenchmarkTable;
 };
 
@@ -81,6 +83,7 @@ export async function benchmark<T>(
   }
 
   return {
+    name,
     results,
     latency: {
       mean: normalizeNumber(totalDuration / results.length),
@@ -88,7 +91,8 @@ export async function benchmark<T>(
     table: () =>
       results.map((result) => {
         return {
-          'Duration': result.duration,
+          'Name': name,
+          'Duration (ms)': result.duration,
           'RSS Δ': result.memoryDelta.rss,
           'Heap Total Δ': result.memoryDelta.heapTotal,
           'Heap Used Δ': result.memoryDelta.heapUsed,
