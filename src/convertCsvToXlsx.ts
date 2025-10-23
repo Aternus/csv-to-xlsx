@@ -32,7 +32,7 @@ export function convertCsvToXlsx(
   }
 
   // read source
-  const csvFile = fse.readFileSync(source, {encoding: 'utf-8'});
+  const csvFile = fse.readFileSync(source, {encoding: 'utf8'});
 
   // csv parser options
   const csvOptions = {
