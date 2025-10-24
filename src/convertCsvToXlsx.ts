@@ -1,7 +1,9 @@
+import fs from 'node:fs';
+
 import {parse} from 'csv-parse/sync';
-import fse from 'fs-extra';
 import xlsx from 'xlsx';
 
+import type {Options} from 'csv-parse/sync';
 import type {APIParameters} from './convertCsvToXlsx.types';
 
 /**
@@ -22,20 +24,31 @@ export function convertCsvToXlsx(
   }
 
   // source exists
-  if (!fse.existsSync(source)) {
+  if (!fs.existsSync(source)) {
     throw new Error(`source "${source}" doesn't exist.`);
   }
 
+  // source is not a directory
+  if (fs.statSync(source).isDirectory()) {
+    throw new Error(`source "${source}" is a directory.`);
+  }
+
   // destination doesn't exist
-  if (fse.existsSync(destination) && !overwrite) {
-    throw new Error(`destination "${destination}" already exists.`);
+  if (fs.existsSync(destination)) {
+    // destination is not a directory
+    if (fs.statSync(destination).isDirectory()) {
+      throw new Error(`destination "${source}" is a directory.`);
+    }
+    if (!overwrite) {
+      throw new Error(`destination "${destination}" already exists.`);
+    }
   }
 
   // read source
-  const csvFile = fse.readFileSync(source, {encoding: 'utf8'});
+  const csvFile = fs.readFileSync(source, {encoding: 'utf8'});
 
   // csv parser options
-  const csvOptions = {
+  const csvOptions: Options = {
     columns: true,
     delimiter: ',',
     ltrim: true,
