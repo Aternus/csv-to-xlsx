@@ -1,5 +1,5 @@
 import {randomUUID} from 'node:crypto';
-import fse from 'node:fs';
+import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 
@@ -15,7 +15,7 @@ export function getSanityCSVPath() {
 export function getTempDir(isRandom: boolean = true) {
   const tmp = path.resolve(os.tmpdir(), 'convertCsvToXlsx');
   const tmpPath = isRandom ? `${tmp}_${randomUUID()}` : tmp;
-  fse.mkdirSync(tmpPath, {recursive: true});
+  fs.mkdirSync(tmpPath, {recursive: true});
   return tmpPath;
 }
 
@@ -39,8 +39,8 @@ export function doCsvToXlsxConversion(
 
   const csvFiles: string[] = [];
 
-  if (fse.statSync(csvPath).isDirectory()) {
-    for (const csv of fse.readdirSync(csvPath)) {
+  if (fs.statSync(csvPath).isDirectory()) {
+    for (const csv of fs.readdirSync(csvPath)) {
       csvFiles.push(path.resolve(csvPath, csv));
     }
   } else {
