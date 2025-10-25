@@ -1,8 +1,8 @@
 #!/usr/bin/env node
+import fs from 'node:fs';
 import path from 'node:path';
 
 import {program} from 'commander';
-import fse from 'fs-extra';
 
 import pkg from '../package.json';
 import {convertCsvToXlsx} from '../src/convertCsvToXlsx';
@@ -45,14 +45,14 @@ const programOptions = program.opts<CLIParameters>();
 const inputPath = path.resolve(programOptions.input);
 const outputPath = path.resolve(programOptions.outputDir);
 
-if (!fse.existsSync(inputPath)) {
+if (!fs.existsSync(inputPath)) {
   console.error(`Invalid input: ${inputPath}`);
   process.exitCode = 1;
   program.help();
 }
 
-if (!fse.existsSync(outputPath)) {
-  fse.mkdirSync(outputPath, {recursive: true});
+if (!fs.existsSync(outputPath)) {
+  fs.mkdirSync(outputPath, {recursive: true});
 }
 
 const convertFile = (sourceFile: string) => {
@@ -67,8 +67,8 @@ const convertFile = (sourceFile: string) => {
   }
 };
 
-if (fse.statSync(inputPath).isDirectory()) {
-  for (const file of fse.readdirSync(inputPath)) {
+if (fs.statSync(inputPath).isDirectory()) {
+  for (const file of fs.readdirSync(inputPath)) {
     convertFile(path.resolve(inputPath, file));
   }
 } else {

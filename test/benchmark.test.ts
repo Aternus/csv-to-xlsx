@@ -1,28 +1,28 @@
-import * as os from 'node:os';
+import fs from 'node:fs';
 import path from 'node:path';
 
 import {describe, expect, test} from '@jest/globals';
-import fse from 'fs-extra';
 
 import {convertCsvToXlsx} from '../src/convertCsvToXlsx';
+import {getTempDir} from './helpers';
 import {benchmark} from './performance';
 
 describe('Node.js API Benchmark', function () {
   test(`Benchmark convertCsvToXlsx`, async function () {
-    const source = path.resolve(__dirname, 'csv/FL_insurance_sample.csv');
+    const source = path.resolve(__dirname, 'csv/florida_insurance_sample.csv');
     const sourceSize = 4123652;
-    const stats = fse.statSync(source);
+    const stats = fs.statSync(source);
     expect(stats.size).toEqual(sourceSize);
-
-    const tempDir = fse.mkdtempSync(
-      path.resolve(os.tmpdir(), 'convertCsvToXlsx_'),
-    );
-    const destination = path.resolve(tempDir, 'FL_insurance_sample.xlsx');
 
     const result = await benchmark(
       'convertCsvToXlsx',
       () => {
-        convertCsvToXlsx(source, destination, {overwrite: true});
+        const tmpPath = getTempDir();
+        const destination = path.resolve(
+          tmpPath,
+          'florida_insurance_sample.xlsx',
+        );
+        convertCsvToXlsx(source, destination);
       },
       {iterations: 10},
     );

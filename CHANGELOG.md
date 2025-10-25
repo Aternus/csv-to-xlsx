@@ -26,6 +26,13 @@ and this project adheres to
 
 - Added benchmark to measure the performance of csv-to-xlsx Node.js API.
 
+### Changed
+
+- Refactored tests: separated tests according to categories, added use of temp
+  directories to ensure each category is isolated, added more CSVs to test edge
+  cases.
+- Changed `fs-extra` to the native `node:fs` module.
+
 ## [3.0.3]
 
 ### Added

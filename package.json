@@ -64,7 +64,6 @@
     "@jest/globals": "30.2.0",
     "@openai/codex": "^0.47.0",
     "@tsconfig/node22": "^22.0.2",
-    "@types/fs-extra": "^11.0.1",
     "@types/node": "^22.17.2",
     "@yao-pkg/pkg": "6.9.0",
     "eslint": "^9.33.0",
@@ -82,7 +81,6 @@
   "dependencies": {
     "commander": "^14.0.0",
     "csv-parse": "^6.1.0",
-    "fs-extra": "^11.1.1",
     "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
   },
   "engines": {
