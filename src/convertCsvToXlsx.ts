@@ -16,7 +16,7 @@ export function convertCsvToXlsx(
   destination: string,
   apiParameters: APIParameters = {},
 ) {
-  const {sheetName = '', overwrite = false, hasHeader = true} = apiParameters;
+  const {sheetName = '', overwrite = false} = apiParameters;
 
   // sanity checks
   if (typeof source !== 'string' || typeof destination !== 'string') {
@@ -64,7 +64,7 @@ export function convertCsvToXlsx(
   const wb = xlsx.utils.book_new();
 
   // insert the records as a sheet
-  const ws = xlsx.utils.json_to_sheet(records, {skipHeader: hasHeader});
+  const ws = xlsx.utils.json_to_sheet(records, {skipHeader: true});
   xlsx.utils.book_append_sheet(wb, ws, sheetName);
 
   // write the xlsx workbook to destination
