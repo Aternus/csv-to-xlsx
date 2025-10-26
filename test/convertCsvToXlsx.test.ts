@@ -71,14 +71,16 @@ describe(`Node.js API`, function () {
     });
 
     test(`Overwriting a single file should throw an Error`, function () {
+      const source = getSanityCSVPath();
       expect(() => {
-        doCsvToXlsxConversion('csv/numbers.csv', tmpDir);
+        doCsvToXlsxConversion(source, tmpDir);
       }).toThrow(Error);
     });
 
     test(`Overwriting a single file with force should not throw an Error`, function () {
+      const source = getSanityCSVPath();
       expect(() => {
-        doCsvToXlsxConversion('csv/numbers.csv', tmpDir, {overwrite: true});
+        doCsvToXlsxConversion(source, tmpDir, {overwrite: true});
       }).not.toThrow(Error);
     });
   });
@@ -96,6 +98,20 @@ describe(`Node.js API`, function () {
       const cell = ws['A2'];
       expect(cell.t).toEqual('s');
       expect(cell.v).toEqual('499600');
+    });
+
+    test(`Converting a file with duplicate columns should preserve these columns`, function () {
+      const sheetName = 'columns';
+      const [numbersXlsx] = doCsvToXlsxConversion(
+        'csv/duplicate-columns.csv',
+        getTempDir(),
+        {sheetName},
+      );
+      const wb = readXlsx(numbersXlsx);
+      const ws = wb.Sheets[sheetName];
+      const expected = 'friend';
+      expect(ws['A1'].v).toEqual(expected);
+      expect(ws['C1'].v).toEqual(expected);
     });
   });
 });
