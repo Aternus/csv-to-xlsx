@@ -18,14 +18,14 @@
     "macos"
   ],
   "type": "commonjs",
-  "main": "./dist/src/convertCsvToXlsx.js",
-  "types": "./dist/src/convertCsvToXlsx.d.ts",
+  "main": "dist/src/convertCsvToXlsx.js",
+  "types": "dist/src/convertCsvToXlsx.d.ts",
   "exports": {
     ".": "./dist/src/convertCsvToXlsx.js",
     "./package.json": "./package.json"
   },
   "bin": {
-    "csv-to-xlsx": "./dist/cli/csv-to-xlsx.js"
+    "csv-to-xlsx": "dist/cli/csv-to-xlsx.js"
   },
   "scripts": {
     "prepare": "husky",
