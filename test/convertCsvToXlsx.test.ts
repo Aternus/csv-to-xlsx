@@ -42,12 +42,12 @@ describe(`Node.js API`, function () {
       expect(() => {
         const source = getSanityCSVPath();
         const destination = getTempDir();
-        convertCsvToXlsx(source, destination, {overwrite: true});
+        convertCsvToXlsx(source, destination);
       }).toThrow(Error);
     });
   });
 
-  describe(`Conversion`, function () {
+  describe(`Conversion: Bulk/Single`, function () {
     const tmpDir = getTempDir();
 
     console.log({tmpDir});
@@ -71,15 +71,35 @@ describe(`Node.js API`, function () {
     });
 
     test(`Overwriting a single file should throw an Error`, function () {
+      const source = getSanityCSVPath();
       expect(() => {
-        doCsvToXlsxConversion('csv/numbers.csv', tmpDir);
+        doCsvToXlsxConversion(source, tmpDir);
       }).toThrow(Error);
     });
 
     test(`Overwriting a single file with force should not throw an Error`, function () {
+      const source = getSanityCSVPath();
       expect(() => {
-        doCsvToXlsxConversion('csv/numbers.csv', tmpDir, {overwrite: true});
+        doCsvToXlsxConversion(source, tmpDir, {overwrite: true});
       }).not.toThrow(Error);
+    });
+  });
+
+  describe(`Conversion: Content`, function () {
+    test(`Headers should be present`, function () {
+      const sheetName = 'headers';
+      const source = getSanityCSVPath();
+      const destination = getTempDir();
+      const [sanityXlsx] = doCsvToXlsxConversion(source, destination, {
+        sheetName,
+      });
+      const wb = readXlsx(sanityXlsx);
+      const ws = wb.Sheets[sheetName];
+      expect(ws['A1'].v).toEqual('First Name');
+      expect(ws['B1'].v).toEqual('Last Name');
+      expect(ws['C1'].v).toEqual('Band');
+      expect(ws['D1'].v).toEqual('Era');
+      expect(ws['E1']).toEqual(undefined);
     });
   });
 
@@ -96,6 +116,20 @@ describe(`Node.js API`, function () {
       const cell = ws['A2'];
       expect(cell.t).toEqual('s');
       expect(cell.v).toEqual('499600');
+    });
+
+    test(`Converting a file with duplicate columns should preserve these columns`, function () {
+      const sheetName = 'columns';
+      const [columnsXlsx] = doCsvToXlsxConversion(
+        'csv/duplicate-columns.csv',
+        getTempDir(),
+        {sheetName},
+      );
+      const wb = readXlsx(columnsXlsx);
+      const ws = wb.Sheets[sheetName];
+      const expected = 'friend';
+      expect(ws['A1'].v).toEqual(expected);
+      expect(ws['C1'].v).toEqual(expected);
     });
   });
 });

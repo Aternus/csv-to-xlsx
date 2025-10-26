@@ -8,6 +8,16 @@ import xlsx from 'xlsx';
 import {convertCsvToXlsx} from '../src/convertCsvToXlsx';
 import {APIParameters} from '../src/convertCsvToXlsx.types';
 
+function convertFile(input: string, output: string, config?: APIParameters) {
+  const fileObject = path.parse(input);
+  if (fileObject.ext === '.csv') {
+    const destination = path.resolve(output, `${fileObject.name}.xlsx`);
+    convertCsvToXlsx(input, destination, config);
+    return destination;
+  }
+  return null;
+}
+
 export function getSanityCSVPath() {
   return path.resolve(__dirname, 'csv', 'rock-stars.csv');
 }
@@ -27,16 +37,6 @@ export function doCsvToXlsxConversion(
   const csvPath = path.resolve(__dirname, input);
   const xlsxPath = path.resolve(output);
 
-  const convertFile = (source: string) => {
-    const fileObject = path.parse(source);
-    if (fileObject.ext === '.csv') {
-      const destination = path.resolve(xlsxPath, `${fileObject.name}.xlsx`);
-      convertCsvToXlsx(source, destination, config);
-      return destination;
-    }
-    return null;
-  };
-
   const csvFiles: string[] = [];
 
   if (fs.statSync(csvPath).isDirectory()) {
@@ -50,7 +50,7 @@ export function doCsvToXlsxConversion(
   const xlsxFiles: string[] = [];
 
   for (const csv of csvFiles) {
-    const xlsxFile = convertFile(csv);
+    const xlsxFile = convertFile(csv, xlsxPath, config);
     if (xlsxFile) {
       xlsxFiles.push(xlsxFile);
     }

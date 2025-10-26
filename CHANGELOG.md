@@ -25,6 +25,8 @@ and this project adheres to
 ### Added
 
 - Added benchmark to measure the performance of csv-to-xlsx Node.js API.
+- Added the ability to handle duplicate columns (based on a request from
+  [PR#33](https://github.com/Aternus/csv-to-xlsx/pull/33))
 
 ### Changed
 
