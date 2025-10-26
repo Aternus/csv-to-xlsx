@@ -20,6 +20,13 @@ and this project adheres to
 
 ### Security
 
+## [3.0.5]
+
+### Fixed
+
+- Fixed the issue with the npm package ignoring the source files due to wrongly
+  configured package.json.
+
 ## [3.0.4]
 
 ### Added
